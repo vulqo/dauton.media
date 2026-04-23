@@ -14,10 +14,7 @@ import VenuePage from '@/components/VenuePage';
 import VenuesListing from '@/components/VenuesListing';
 import EraPage from '@/components/EraPage';
 import ProfilePage from '@/components/ProfilePage';
-import ShopPage from '@/components/ShopPage';
-import ProductPage from '@/components/ProductPage';
 import OnboardingPage from '@/components/OnboardingPage';
-import SellerDashboard from '@/components/SellerDashboard';
 
 const STORAGE_KEY = 'dm-view';
 
@@ -52,22 +49,21 @@ export default function DautonMedia() {
 
   const go = (v: string) => setView(v);
 
+  const [viewName, viewSlug] = view.split(':');
+
   const page = (() => {
-    switch (view) {
+    switch (viewName) {
       case 'home':      return <HomePage go={go} />;
-      case 'artist':    return <ArtistPage go={go} />;
+      case 'artist':    return <ArtistPage go={go} slug={viewSlug} />;
       case 'release':   return <ReleasePage go={go} />;
       case 'article':   return <ArticlePage go={go} />;
-      case 'city':      return <CityPage go={go} />;
+      case 'city':      return <CityPage go={go} slug={viewSlug} />;
       case 'event':     return <EventPage go={go} />;
       case 'venue':     return <VenuePage go={go} />;
       case 'venues':    return <VenuesListing go={go} />;
       case 'era':       return <EraPage go={go} />;
       case 'profile':   return <ProfilePage go={go} />;
-      case 'shop':      return <ShopPage go={go} />;
-      case 'product':   return <ProductPage go={go} />;
       case 'join':      return <OnboardingPage go={go} />;
-      case 'dashboard': return <SellerDashboard go={go} />;
       default:          return <HomePage go={go} />;
     }
   })();

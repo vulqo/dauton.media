@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 
-export default function CityPage({ go }: { go: (view: string) => void }) {
+export default function CityPage({ go, slug: _slug }: { go: (view: string) => void; slug?: string }) {
   const [tab, setTab] = useState('overview');
   const [roleFilter, setRoleFilter] = useState('all');
   const [feedTab, setFeedTab] = useState('todo');

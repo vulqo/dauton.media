@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import EntityCard from '@/components/EntityCard';
 import PlatformLinks from '@/components/PlatformLinks';
 import Comments from '@/components/Comments';
+import { getPersonBySlug } from '@/lib/queries/people';
+import type { Person } from '@/lib/database.types';
 
 interface GalleryItem {
   id: string;
@@ -23,9 +25,17 @@ interface CollaboratorEntry {
   count: string;
 }
 
-export default function ArtistPage({ go }: { go: (view: string) => void }) {
+export default function ArtistPage({ go, slug }: { go: (view: string) => void; slug?: string }) {
   const [lightbox, setLightbox] = useState<string | null>(null);
   const [uploadOpen, setUploadOpen] = useState(false);
+  const [person, setPerson] = useState<Person | null>(null);
+
+  useEffect(() => {
+    if (!slug) return;
+    getPersonBySlug(slug).then((data) => {
+      setPerson(data);
+    });
+  }, [slug]);
 
   const gallery: GalleryItem[] = [
     { id: 'g1', bg: 'linear-gradient(135deg,#244C5A 0%,#0a0a0a 100%)', mono: 'CNS', title: 'Live · Teatro Teresa Carreno', year: '2013', credit: 'Foto: Jesus Castillo', wide: true, tall: true },
@@ -50,6 +60,23 @@ export default function ArtistPage({ go }: { go: (view: string) => void }) {
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   }, [lightbox, gIdx]);
+
+  // Derive display values — fall back to hardcoded Canserbero mock when no slug/person
+  const cityData = person?.cities as { name: string; slug: string } | null | undefined;
+  const displayName    = person ? person.stage_name : 'Canserbero';
+  const displayCity    = person
+    ? (cityData ? cityData.name.toUpperCase() : 'VENEZUELA')
+    : 'CARACAS';
+  const displayCountry = 'VE';
+  const displayBio     = person
+    ? (person.bio_short ?? '')
+    : 'Rapero venezolano nacido en Caracas en 1988. Considerado una de las figuras mas influyentes del rap hispanohablante, especialmente por la densidad lirica y el uso de referencias religiosas y filosoficas. Colaborador frecuente de Lil Supa, Apache y McKlopedia. Produccion casi en exclusiva de Ahiezer. Fallecido en enero de 2015.';
+  const isDeceased     = person ? person.status === 'deceased' : true;
+  const isVerified     = person ? (person.verified ?? false) : true;
+  const activeRange    = person
+    ? [person.active_since?.slice(0, 4), person.active_until?.slice(0, 4)].filter(Boolean).join('-') || 'ACTIVO'
+    : 'ACTIVO 2003-2015';
+  const crumbName      = displayName.toUpperCase();
 
   const collaborators: CollaboratorEntry[] = [
     { name: 'Ahiezer',            kind: 'PRODUCER',  count: '34 tracks · 3 albums' },
@@ -83,9 +110,9 @@ export default function ArtistPage({ go }: { go: (view: string) => void }) {
     <main className="dm-entity">
       <div className="dm-crumb">
         <a onClick={() => go('home')}>DAUTON</a><span>/</span>
-        <a onClick={() => go('ciudades')}>CARACAS</a><span>/</span>
+        <a onClick={() => go('ciudades')}>{displayCity}</a><span>/</span>
         <a>ARTISTAS</a><span>/</span>
-        <span className="dm-crumb-cur">CANSERBERO</span>
+        <span className="dm-crumb-cur">{crumbName}</span>
       </div>
 
       <header className="dm-art-hero">
@@ -93,21 +120,23 @@ export default function ArtistPage({ go }: { go: (view: string) => void }) {
           className="dm-art-portrait"
           style={{ background: 'linear-gradient(135deg,#244C5A 0%,#0a0a0a 55%,#3a1318 100%)' }}
         >
-          <div className="dm-art-portrait-mono">C</div>
+          <div className="dm-art-portrait-mono">{displayName.charAt(0).toUpperCase()}</div>
           <div className="dm-art-portrait-foot">
-            <span>CARACAS · VE</span>
-            <span>EST. 2003</span>
+            <span>{displayCity} · {displayCountry}</span>
+            {isDeceased && <span style={{ color: '#D93D4A', fontWeight: 700 }}>IN MEMORIAM</span>}
           </div>
         </div>
         <div className="dm-art-head">
           <div className="dm-art-kind">ARTIST · MC · PRODUCTOR</div>
           <h1 className="dm-art-name">
-            Canserbero
-            <span className="dm-verified-lg">✓ VERIFIED</span>
+            {displayName}
+            {isVerified && <span className="dm-verified-lg">✓ VERIFIED</span>}
           </h1>
-          <div className="dm-art-alt">Tirone Jose Gonzalez Orama · alias "Pregonero"</div>
+          {!person && (
+            <div className="dm-art-alt">Tirone Jose Gonzalez Orama · alias &ldquo;Pregonero&rdquo;</div>
+          )}
           <div className="dm-art-loc">
-            <b>CARACAS</b><em>·</em><span>VE</span><em>·</em><span>ACTIVO 2003-2015</span>
+            <b>{displayCity}</b><em>·</em><span>{displayCountry}</span><em>·</em><span>{activeRange}</span>
           </div>
           <div className="dm-art-actions">
             <button className="dm-btn dm-btn-primary">SEGUIR · 12.4K</button>
@@ -143,12 +172,18 @@ export default function ArtistPage({ go }: { go: (view: string) => void }) {
         <section className="dm-entity-main">
           <div className="dm-section-eyebrow">BIO</div>
           <p className="dm-bio">
-            Rapero venezolano nacido en <a className="dm-inline">Caracas</a> en 1988. Considerado una de las figuras
-            mas influyentes del rap hispanohablante, especialmente por la densidad lirica y el uso de referencias
-            religiosas y filosoficas. Colaborador frecuente de <a className="dm-inline">Lil Supa</a>,{' '}
-            <a className="dm-inline">Apache</a> y <a className="dm-inline">McKlopedia</a>. Produccion casi en
-            exclusiva de <a className="dm-inline">Ahiezer</a>. Fallecido en enero de 2015{' '}
-            <a className="dm-cite">[1]</a>.
+            {person && person.bio_short ? (
+              person.bio_short
+            ) : (
+              <>
+                Rapero venezolano nacido en <a className="dm-inline">Caracas</a> en 1988. Considerado una de las figuras
+                mas influyentes del rap hispanohablante, especialmente por la densidad lirica y el uso de referencias
+                religiosas y filosoficas. Colaborador frecuente de <a className="dm-inline">Lil Supa</a>,{' '}
+                <a className="dm-inline">Apache</a> y <a className="dm-inline">McKlopedia</a>. Produccion casi en
+                exclusiva de <a className="dm-inline">Ahiezer</a>. Fallecido en enero de 2015{' '}
+                <a className="dm-cite">[1]</a>.
+              </>
+            )}
           </p>
 
           <div className="dm-section-eyebrow" style={{ marginTop: 36 }}>ULTIMO LANZAMIENTO</div>
@@ -359,7 +394,7 @@ export default function ArtistPage({ go }: { go: (view: string) => void }) {
         </aside>
       </div>
 
-      <Comments context="Canserbero" />
+      <Comments context={displayName} />
 
       <details className="dm-admin-drawer">
         <summary>· moderacion</summary>

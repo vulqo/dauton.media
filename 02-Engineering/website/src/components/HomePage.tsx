@@ -1,6 +1,8 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import EntityCard from '@/components/EntityCard';
+import { getPeople } from '@/lib/queries/people';
+import type { Person } from '@/lib/database.types';
 
 interface DirectoryEntry {
   k: string;
@@ -51,6 +53,16 @@ interface CityEntry {
 }
 
 export default function HomePage({ go }: { go: (view: string) => void }) {
+  const [people, setPeople] = useState<Person[]>([]);
+  const [peopleLoading, setPeopleLoading] = useState(true);
+
+  useEffect(() => {
+    getPeople({ limit: 15 }).then((data) => {
+      setPeople(data);
+      setPeopleLoading(false);
+    });
+  }, []);
+
   const DIRECTORY: DirectoryEntry[] = [
     { k: 'artist',    head: 'ARTISTAS',     num: '342',  lbl: 'Directorio',        sub: 'MCs, DJs, productores, fotografos, venues, prensa.',        tint: '#D93D4A', go: 'artist' },
     { k: 'release',   head: 'LANZAMIENTOS', num: '1.2K', lbl: 'Archivo musical',   sub: 'Albums, EPs, singles, mixtapes. 2003-hoy.',                  tint: '#04756F', go: 'release' },
@@ -58,8 +70,6 @@ export default function HomePage({ go }: { go: (view: string) => void }) {
     { k: 'ciudades',  head: 'CIUDADES',     num: '12',   lbl: 'Escenas locales',   sub: 'Caracas, Maracay, Valencia, Merida y mas.',                   tint: '#244C5A', go: 'ciudades' },
     { k: 'editorial', head: 'EDITORIAL',    num: '47',   lbl: 'Resenas & ensayos', sub: 'Longform, reviews, entrevistas, features.',                   tint: '#0093C6', go: 'editorial' },
     { k: 'profile',   head: 'DIRECTORIO',   num: '187',  lbl: 'Perfiles pro',      sub: 'Productores, DJs, disenadores, ingenieros, fotografos.',      tint: '#7a2a2a', go: 'profile' },
-    { k: 'drops',     head: 'DROPS',        num: '9',    lbl: 'Shop editorial',    sub: 'Merch, libros, prints. Tiradas limitadas.',                   tint: '#5ab8b0', go: 'home' },
-    { k: 'venues',    head: 'VENUES',       num: '47',   lbl: 'Ranking de lugares', sub: 'Clubs, teatros, estudios, bares, festivales.',              tint: '#D97757', go: 'venues' },
   ];
 
   const events: EventEntry[] = [
@@ -76,13 +86,29 @@ export default function HomePage({ go }: { go: (view: string) => void }) {
     { tag: 'OPINION',           title: 'Por que el beat boom-bap sigue siendo la columna vertebral del hip-hop latino', author: 'J.C. BALLESTA', min: '9', date: '28 MAR 2026', cover: { bg: '#04756F', mono: 'BBP', ink: false } },
   ];
 
-  const featuredArtists: ArtistEntry[] = [
+  // Fallback used when Supabase returns empty or while loading
+  const FALLBACK_ARTISTS: ArtistEntry[] = [
     { n: 'Canserbero',    c: 'CARACAS · VE', a: 87, v: true },
     { n: 'Apache',        c: 'MARACAY · VE', a: 64, v: true },
     { n: 'Lil Supa',      c: 'CARACAS · VE', a: 71, v: false },
     { n: 'McKlopedia',    c: 'CARACAS · VE', a: 58, v: true },
     { n: 'Guerrilla Seed', c: 'CARACAS · VE', a: 34, v: false },
   ];
+
+  const liveFeaturedArtists: ArtistEntry[] = people.length > 0
+    ? people.slice(0, 5).map((p) => {
+        const cityData = p.cities as { name: string; slug: string } | null;
+        const cityLabel = cityData ? `${cityData.name.toUpperCase()} · VE` : 'VENEZUELA';
+        return {
+          n: p.stage_name,
+          c: cityLabel,
+          a: p.completeness_score ?? 0,
+          v: p.verified ?? false,
+        };
+      })
+    : FALLBACK_ARTISTS;
+
+  const featuredArtists = liveFeaturedArtists;
 
   const cities: CityEntry[] = [
     { n: 'Caracas',  sub: 'Venezuela', a: 187, r: 612, e: 48 },
@@ -167,16 +193,33 @@ export default function HomePage({ go }: { go: (view: string) => void }) {
       <section className="dm-section">
         <div className="dm-section-head">
           <div>
-            <div className="dm-section-eyebrow">ULTIMOS RELEASES</div>
-            <h2 className="dm-section-title">Archivo · esta semana</h2>
+            <div className="dm-section-eyebrow">ARTISTAS DEL ARCHIVO</div>
+            <h2 className="dm-section-title">Pilares · esta escena</h2>
           </div>
-          <a className="dm-section-more" onClick={() => go('release')}>VER TODOS (1.2K) →</a>
+          <a className="dm-section-more" onClick={() => go('artist')}>VER TODOS →</a>
         </div>
-        <div className="dm-grid-4">
-          <EntityCard kind="RELEASE" year="2012" title="Apocalipsis" subtitle="CANSERBERO · 16 TRACKS · 38:07" cover="apocalipsis" meta={87} onClick={() => go('release')} />
-          <EntityCard kind="RELEASE" year="2010" title="Muerte"      subtitle="CANSERBERO · 14 TRACKS · 45:21" cover="muerte"      meta={92} onClick={() => go('release')} />
-          <EntityCard kind="RELEASE" year="2018" title="Indigo"      subtitle="APACHE · 10 TRACKS · 32:14"     cover="indigo"      meta={71} onClick={() => go('release')} />
-          <EntityCard kind="RELEASE" year="2022" title="Cristal"     subtitle="LIL SUPA · 12 TRACKS · 41:08"   cover="cristal"     meta={64} onClick={() => go('release')} />
+        <div className="dm-grid-4" style={{ opacity: peopleLoading ? 0.4 : 1, transition: 'opacity .2s' }}>
+          {(people.length > 0 ? people.slice(0, 4) : [
+            { slug: 'canserbero', stage_name: 'Canserbero', status: 'deceased', completeness_score: 87, verified: true, cities: { name: 'Maracay', slug: 'maracay' } },
+            { slug: 'apache',     stage_name: 'Apache',     status: 'active',   completeness_score: 64, verified: true, cities: { name: 'Maracay', slug: 'maracay' } },
+            { slug: 'lil-supa',   stage_name: 'Lil Supa',   status: 'active',   completeness_score: 71, verified: false, cities: { name: 'Caracas', slug: 'caracas' } },
+            { slug: 'mcklopedia', stage_name: 'McKlopedia', status: 'active',   completeness_score: 58, verified: true, cities: { name: 'Caracas', slug: 'caracas' } },
+          ] as Partial<Person>[]).map((p) => {
+            const cityData = p.cities as { name: string; slug: string } | null;
+            const subtitle = cityData ? `${cityData.name.toUpperCase()} · VE` : 'VENEZUELA';
+            return (
+              <EntityCard
+                key={p.slug}
+                kind="ARTIST"
+                year={p.status === 'deceased' ? 'IN MEMORIAM' : 'ACTIVO'}
+                title={p.stage_name ?? ''}
+                subtitle={subtitle}
+                cover={p.slug ?? ''}
+                meta={p.completeness_score ?? 0}
+                onClick={() => go(`artist:${p.slug}`)}
+              />
+            );
+          })}
         </div>
       </section>
 
@@ -212,23 +255,27 @@ export default function HomePage({ go }: { go: (view: string) => void }) {
             </div>
             <a className="dm-section-more" onClick={() => go('artist')}>TODOS (342) →</a>
           </div>
-          <div className="dm-artist-list">
-            {featuredArtists.map((a, i) => (
-              <a key={i} className="dm-artist-row" onClick={() => go('artist')}>
-                <span className="dm-artist-idx">0{i + 1}</span>
-                <span className="dm-artist-name">
-                  {a.n}
-                  {a.v && <span className="dm-verified" title="Verified"> ✓</span>}
-                </span>
-                <span className="dm-artist-city">{a.c}</span>
-                <span
-                  className="dm-artist-pct"
-                  style={{ color: a.a >= 80 ? '#ffce37' : a.a >= 50 ? 'var(--fg-0)' : '#D93D4A' }}
-                >
-                  {a.a}%
-                </span>
-              </a>
-            ))}
+          <div className="dm-artist-list" style={{ opacity: peopleLoading ? 0.4 : 1, transition: 'opacity .2s' }}>
+            {featuredArtists.map((a, i) => {
+              const person = people.find((p) => p.stage_name === a.n);
+              const slug = person ? person.slug : a.n.toLowerCase().replace(/\s+/g, '-');
+              return (
+                <a key={i} className="dm-artist-row" onClick={() => go(`artist:${slug}`)}>
+                  <span className="dm-artist-idx">0{i + 1}</span>
+                  <span className="dm-artist-name">
+                    {a.n}
+                    {a.v && <span className="dm-verified" title="Verified"> ✓</span>}
+                  </span>
+                  <span className="dm-artist-city">{a.c}</span>
+                  <span
+                    className="dm-artist-pct"
+                    style={{ color: a.a >= 80 ? '#ffce37' : a.a >= 50 ? 'var(--fg-0)' : '#D93D4A' }}
+                  >
+                    {a.a}%
+                  </span>
+                </a>
+              );
+            })}
           </div>
         </aside>
       </section>
@@ -256,44 +303,6 @@ export default function HomePage({ go }: { go: (view: string) => void }) {
         </div>
       </section>
 
-      <section className="dm-section">
-        <div className="dm-section-head">
-          <div>
-            <div className="dm-section-eyebrow">DROPS · MERCH EDITORIAL</div>
-            <h2 className="dm-section-title">Drops activos</h2>
-          </div>
-          <a className="dm-section-more" onClick={() => go('shop')}>SHOP →</a>
-        </div>
-        <div className="dm-grid-3">
-          <div className="dm-drop">
-            <div className="dm-drop-cover" style={{ background: 'var(--bg-1)' }}>
-              <div className="dm-drop-title">TEE · APOCA<br />LIPSIS 14Y</div>
-            </div>
-            <div className="dm-drop-meta">
-              <span>DROP 001 · LIMITED 100</span>
-              <span className="dm-drop-price">$42</span>
-            </div>
-          </div>
-          <div className="dm-drop">
-            <div className="dm-drop-cover" style={{ background: '#ffce37', color: 'var(--bg-0)' }}>
-              <div className="dm-drop-title">HOODIE · SENAL<br />ETICA</div>
-            </div>
-            <div className="dm-drop-meta">
-              <span>DROP 002 · IN STOCK</span>
-              <span className="dm-drop-price">$78</span>
-            </div>
-          </div>
-          <div className="dm-drop">
-            <div className="dm-drop-cover" style={{ background: '#244C5A' }}>
-              <div className="dm-drop-title">BOOK · CARACAS 08-15</div>
-            </div>
-            <div className="dm-drop-meta">
-              <span>PRE-ORDER</span>
-              <span className="dm-drop-price">$28</span>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
