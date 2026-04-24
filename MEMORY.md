@@ -368,3 +368,24 @@ Claude Code reportó Sprint 2 completo:
 - Sprint 5 arranca cuando queue drene sin errores (validación: 15/15 pillars con spotify_id).
 - TypeScript clean, preview site sirve data real.
 - Zero commits — Luis revisará diff antes de push.
+
+### 2026-04-24 (commits Sprints 3-4 + política commits Cowork)
+
+**Commits pusheados a `main`** (vía Desktop Commander sobre filesystem real del Mac, evitando el `.git/` read-only del sandbox):
+
+- `7abd199` · `feat(db): sprints 3-4 migrations — ingestion infra, schema fixes, seed pillars, rate-limit + fuzzy-match RPCs` · 5 files, +417.
+- `e7d6b37` · `feat(website): App Router real + purge legacy store` · 21 files, +518 / -1423.
+- `8caf473` · `feat(ingest): Spotify worker + dispatcher + Stage 1 bootstrap + skills stubs` · 50 files, +4068.
+- `9a2edda` · `docs: api-docs, ingestion playbook, credentials, memory, social plan` · 30 files, +5968.
+
+Working tree limpio. 106 archivos commiteados entre los 4. Total +10,971 / -1,900 líneas.
+
+**Política de commits Cowork (aprobada 2026-04-24):**
+- Cada vez que un sprint de Claude Code cierra OK, Cowork hace los commits semánticos directamente (via Desktop Commander → bash del Mac), en commits separados por área (db, website, ingest, docs). Luego push a `main`.
+- Cowork NUNCA hace `git push --force`.
+- Entre sprints, si Cowork edita docs por iniciativa propia (MEMORY, api-docs, prompts), los incluye en el próximo commit batch al cerrar el turno.
+- Si hay deuda técnica o WIP, Cowork lo separa en commit propio `fix` o `chore` para revert granular.
+- Luis no necesita ejecutar nada — solo revisar en GitHub si quiere.
+
+**Deuda security detectada** (2026-04-24):
+- El `git remote get-url origin` tiene el GitHub PAT embebido en la URL (`https://vulqo:ghp_8rcQ...@github.com/...`). Esto es visible en `.git/config` local. Riesgo: si alguien tiene access al filesystem del Mac o al `.git/` del repo, el token queda expuesto. Mitigación: migrar a macOS Keychain credential helper (`git config --global credential.helper osxkeychain`) y re-set origin sin token. **NO urgente** pero registrado para tocar en algún ventana de housekeeping.
