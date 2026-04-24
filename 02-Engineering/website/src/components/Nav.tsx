@@ -45,7 +45,7 @@ export default function Nav({ onSearch }: NavProps) {
           <span className="dm-kbd">⌘K</span>
         </button>
         <div className="dm-nav-end">
-          <Link href="/join" className="dm-chip">JOIN</Link>
+          <Link href="/auth" className="dm-chip">ENTRAR</Link>
         </div>
       </div>
     </header>
