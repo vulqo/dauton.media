@@ -20,6 +20,11 @@
  *      `fetch_recording_credits` per track
  *   6. `fetch_recording_credits` populates production_credits, writing_credits,
  *      collaborations tables
+ *   7. Gap-fill via Genius: for tracks/people where MusicBrainz has no
+ *      recording or missing producer/writer credits, enqueue Genius ops
+ *      (`resolve_genius_artist_by_name`, `fetch_genius_song_credits`)
+ *      to backfill credits, lyrics URLs, and sample/interpolation relations.
+ *      Genius is expected to cover ~40-50% of long-tail VE rap that MB lacks.
  *
  * Expected runtime: days for full catalog (thousands of tracks × 1.1s MB spacing).
  * Mitigation: run async via GitHub Actions cron; dispatcher handles retries.

@@ -275,7 +275,7 @@ async function fetchArtistDetails(item: QueueItem): Promise<WorkerResult> {
     .eq('spotify_id', spotifyId)
     .single();
 
-  if (!person) return { ok: false, error: `No person found with spotify_id=${spotifyId}`, retryable: false };
+  if (!person) return { ok: false, error: `No person found with spotify_id=${spotifyId} (race — retrying)`, retryable: true };
 
   // Spotify can return artist objects with missing fields on edge cases
   // (deleted/deactivated artists, regional restrictions). Guard all reads.
