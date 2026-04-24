@@ -13,4 +13,9 @@ Thumbs.db
 
 # Editor
 .cursor/
+.claude/
 *.swp
+.vercel
+
+# Reference material (not source)
+_Reference/design-system-v3/

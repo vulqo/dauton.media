@@ -1,0 +1,90 @@
+{
+  "source": "k12jamz (curator/producer, Venezuelan-focused)",
+  "source_url": "https://open.spotify.com/user/k12jamz",
+  "fetched_at": "2026-04-23",
+  "note": "Seed playlists for initial artist discovery. `mvp_priority` indicates whether we ingest artists from this playlist at Stage 1. Stage 1 only pulls from `priority: critical` + `priority: high`. Lower priorities can be ingested later if coverage gaps appear.",
+  "playlists": [
+    {
+      "id": "5uuNL2vYlOv2qOHyLiG2Iq",
+      "name": "Rap Venezolano",
+      "url": "https://open.spotify.com/playlist/5uuNL2vYlOv2qOHyLiG2Iq",
+      "followers_approx": 10819,
+      "mvp_priority": "critical",
+      "rationale": "Canonical Venezuelan rap playlist. Core of the MVP seed."
+    },
+    {
+      "id": "0432DFGQKxtcOI6HPvVvZ8",
+      "name": "Trap & Drill Venezolano",
+      "url": "https://open.spotify.com/playlist/0432DFGQKxtcOI6HPvVvZ8",
+      "followers_approx": 10794,
+      "mvp_priority": "critical",
+      "rationale": "New generation (trap/drill) venezolano. Captures artists not covered by Rap Venezolano playlist."
+    },
+    {
+      "id": "0dKEoagPfH7ieydlm3FStg",
+      "name": "Rap Latino Clasicos",
+      "url": "https://open.spotify.com/playlist/0dKEoagPfH7ieydlm3FStg",
+      "followers_approx": 8049,
+      "mvp_priority": "high",
+      "rationale": "Classic Latin rap. Anchors historical references and peripheral artists (Mexico, Spain, PR) that collab with VE scene."
+    },
+    {
+      "id": "08DmBTpl9TxX3V407dzmwU",
+      "name": "Latin Jamz",
+      "url": "https://open.spotify.com/playlist/08DmBTpl9TxX3V407dzmwU",
+      "followers_approx": 15632,
+      "mvp_priority": "high",
+      "rationale": "Broader Latin hip-hop. Biggest follower count of the set — wide source of peripheral artists for collab graph."
+    },
+    {
+      "id": "3mipuLBQviTRJxK0G1zZO1",
+      "name": "Rap Latino Chillin",
+      "url": "https://open.spotify.com/playlist/3mipuLBQviTRJxK0G1zZO1",
+      "followers_approx": 219,
+      "mvp_priority": "medium",
+      "rationale": "Cola larga latina. Process at Stage 1 only if capacity allows."
+    },
+    {
+      "id": "5Wz7xcEadMHnPJ9uMBTSMz",
+      "name": "My 2023 Playlist in a Bottle",
+      "url": "https://open.spotify.com/playlist/5Wz7xcEadMHnPJ9uMBTSMz",
+      "followers_approx": 5,
+      "mvp_priority": "low",
+      "rationale": "Personal curator playlist. Potentially useful signal of what k12jamz was listening to in 2023 but noisy."
+    },
+    {
+      "id": "2gj6R8Eeh6vzf4bve8kg76",
+      "name": "Classic Jamz (R&B)",
+      "url": "https://open.spotify.com/playlist/2gj6R8Eeh6vzf4bve8kg76",
+      "followers_approx": 174,
+      "mvp_priority": "out-of-scope",
+      "rationale": "R&B, not hip-hop. Skip for MVP."
+    },
+    {
+      "id": "6u2y0gkFORaCEm2LvXoXXG",
+      "name": "Break Ya Neck (Hip Hop)",
+      "url": "https://open.spotify.com/playlist/6u2y0gkFORaCEm2LvXoXXG",
+      "followers_approx": 161,
+      "mvp_priority": "out-of-scope",
+      "rationale": "US hip-hop. Not Spanish-speaking. Skip."
+    },
+    {
+      "id": "77UTV3o6Q8ErSOioWiwWkY",
+      "name": "Back In The Days",
+      "url": "https://open.spotify.com/playlist/77UTV3o6Q8ErSOioWiwWkY",
+      "followers_approx": 70,
+      "mvp_priority": "out-of-scope",
+      "rationale": "US hip-hop retrospective. Skip."
+    }
+  ],
+  "additional_sources_needed": {
+    "note": "k12jamz covers Venezuelan trap/drill and Latin classics well, but we should add 3-5 more curator sources to complete coverage. Suggestions to solicit from Luis:",
+    "gaps": [
+      "Women in Venezuelan rap (Gabylonia-adjacent). k12jamz underrepresents.",
+      "Producer-curated instrumental beats (boom-bap VE)",
+      "Freestyle battles / Red Bull Batalla de los Gallos VE chapter",
+      "Colombian and Spanish rap curators for peripheral graph",
+      "Dauton Media's own editorial playlists (to create in Stage 1)"
+    ]
+  }
+}

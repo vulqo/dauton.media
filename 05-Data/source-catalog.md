@@ -227,6 +227,33 @@ What we do:
 
 ---
 
+## Educational / industry research (future)
+
+### Seedcademy.io
+
+- **URL:** https://seedcademy.io
+- **Purpose:** educational platform with courses on Latin music business,
+  streaming economy, royalty structures, label deal types. Luis holds a
+  **Music Business Certification** account with access to course materials.
+- **What we could extract:**
+  - Industry frameworks (how our `deal_type` enum in `label_eras` maps to
+    real contract structures — "360 deal", "distro", "licensing", etc.).
+  - Latin market data (streaming share by region, platform penetration in
+    VE/CO/MX) → useful for editorial framing and About page.
+  - Case studies of Latin artists that inform how we write about career
+    inflection points.
+- **Auth:** Luis's account login (no public API; any access via manual
+  extraction or carefully-scoped scraping).
+- **Legal:** course materials are copyrighted. **DO NOT republish verbatim.**
+  Use for internal knowledge-building and as background when writing editorial.
+  Cite Seedcademy as source when a specific framework is borrowed.
+- **Status:** **plan futuro, NO MVP.** Revisit post-launch when editorial
+  layer (v2.0) needs industry context. Any scraping requires review of
+  platform ToS first.
+- **Priority:** low · deferred post-MVP.
+
+---
+
 ## Proprietary / premium (future)
 
 ### Chartmetric
