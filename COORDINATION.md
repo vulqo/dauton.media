@@ -49,9 +49,14 @@ Cada chat de departamento se documenta en `00-Executive/departments.md`.
 
 ## Decisiones cross-area pendientes
 
-- [ ] Ningún hold actual.
+- [ ] **CONFLICT [BIZ-LEGAL ↔ FOUNDER]: Subscripción Artista Pro contradice principio del plan-maestro.**
+  - **Detectado por:** Business & Legal chat (en `09-Business/financing-tracks.md`, Track 2).
+  - **Conflict:** plan-maestro.md principio #6 dice *"Free para el fan y el artista, siempre."* Pero el track de monetización Artista Pro ($8/mes · $80/año) implica que features pro requieren pago.
+  - **Postura Business & Legal:** claim + edit básico queda free (sostiene el principio); Pro es add-on opcional con features no-esenciales (analytics privados, vanity URL, press kit). Es interpretation razonable.
+  - **Postura alternativa:** mantener "artist always free for everything", tachar Track 2 entero, compensar con Tracks 3+ (manager tier) y 6+ (sponsorship/comisiones) más agresivos.
+  - **Acción:** **founder decide antes de Fase 4 (Q1 2027)**. NO bloquea MVP launch — afecta roadmap de monetización post-launch.
 
-(Esta sección lista decisiones que requieren input de múltiples áreas. Ej. "feature X requiere review de Legal + decisión de Pricing + impacto en Engineering". Se mueven a `TASKS.md` cuando son ejecutables.)
+(Esta sección lista decisiones que requieren input de múltiples áreas. Se mueven a `TASKS.md` cuando son ejecutables.)
 
 ---
 
