@@ -389,3 +389,29 @@ Working tree limpio. 106 archivos commiteados entre los 4. Total +10,971 / -1,90
 
 **Deuda security detectada** (2026-04-24):
 - El `git remote get-url origin` tiene el GitHub PAT embebido en la URL (`https://vulqo:ghp_8rcQ...@github.com/...`). Esto es visible en `.git/config` local. Riesgo: si alguien tiene access al filesystem del Mac o al `.git/` del repo, el token queda expuesto. Mitigación: migrar a macOS Keychain credential helper (`git config --global credential.helper osxkeychain`) y re-set origin sin token. **NO urgente** pero registrado para tocar en algún ventana de housekeeping.
+
+### 2026-04-24 (Design Sync v3 cerrado — 12 componentes + 13 rutas)
+
+**Deliverables:**
+- 12 componentes TSX portados desde design system v3 (JSX → TSX) con `'use client'` según aplique, props tipadas, `useRouter`/`Link` de `next/navigation` en vez del pattern SPA `go('view')`.
+- 13 rutas nuevas en App Router: `/about`, `/auth`, `/compare`, `/crews/[slug]`, `/directory/[type]`, `/labels/[slug]`, `/methodology`, `/privacy`, `/terms`, `/tracks/[slug]`, `/u/[user]/lists/[list]`, `not-found.tsx` global, y `/search` actualizado.
+- `Nav.tsx`: chip **ENTRAR** ahora apunta a `/auth` (antes `/join`).
+- Design system v3 descomprimido en `_Reference/design-system-v3/` (gitignored).
+- Build clean, 0 TypeScript errors, 14 static pages prerendered + dynamic routes.
+- Commit `3571995` pushed.
+
+**Componentes NO portados (scope cerrado):**
+- MessagesPage, NotificationsPage — deferred post-MVP
+- ShopPage, ProductPage, SellerDashboard, MembershipPage — legacy ya purgado
+- CVExportModal — no MVP use case
+- ClaimCreditModal, ContributeModal, PhotoUploadModal — wire-blocked hasta Sprint 6+ (moderación + contribuciones)
+- tweaks-panel — dev tool interno de design
+
+**Deuda técnica asumida (Design Sync v3):**
+1. **Props con `any`** en `CompareView`, `CrewProfile`, `LabelProfile`, `TrackPage`, `UserListPage`. Aceptable mientras usen mock/null. Cuando Sprint 5 trae releases/tracks reales + Sprint 6 trae crews/labels, tipar contra `database.types.ts` (`Person`, `Crew`, `Label`, `Track`, `UserList`).
+2. **StaticPage sin markdown parser real.** Splittea por `\n\n` en `<p>`. Headings y links del `.md` aparecen como texto literal. Upgrade a `react-markdown` + `remark-gfm` cuando haya tiempo (5 min de trabajo, mejora UX notablemente).
+3. **`/privacy` y `/terms` leen `.md`** via `path.join(process.cwd(), '..', '..', ...)` con try/catch fallback. Correcto en Vercel con `cwd=02-Engineering/website`, pero frágil si cambia deploy structure. Alternativa: import estático via MDX.
+4. **`/join` y `/auth` coexisten.** `/join` es OnboardingPage (Sprint 2), `/auth` es AuthPage nuevo. Decidir: delete `/join`, o 301 redirect `/join → /auth`, o diferenciar roles (join = signup flow, auth = login). Decisión pospuesta a Sprint 6 (cuando wireamos Supabase Auth real).
+5. **Glyphs preservados correctamente**: `✓ → ← ∅ ♪ ×` son convención existente (no pictográfico). Removidos de UserListPage los pictográficos `♡ ↗ ⧉ ◆` por regla SKILL.md.
+
+**Stats del commit:** 26 files, +1278 / -51.
