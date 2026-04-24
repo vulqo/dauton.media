@@ -85,10 +85,15 @@ Ver `00-Executive/plan-maestro.md` para la versión completa de la visión (escr
 3. **Artistas auto-registrados** — tag especial (son clientes directos). Sensación VIP vs regular.
 4. **Outreach masivo por email** — una vez perfiles armados, contactar artistas pidiendo verificación.
 5. **Calculadora de ingresos** — ejemplo de SEO tool. Hay que pensar más casos similares.
-6. **Visualizaciones** — timeline del rap VE, mapa geográfico por ciudad, grafo de colaboraciones. NO blogs.
-7. **Eventos** — poblar con Eventbrite API (prioridad alta para diáspora).
-8. **Merch** — links gratis primero a plataformas externas (Bandcamp, Shopify del artista). Redirección sin comisión en MVP.
-9. **Tickets** — redirección gratis primero (Ticketmaster, Eventbrite). Integración con comisión post-tracción.
+6. **Eventos** — poblar con Eventbrite API (prioridad alta para diáspora).
+7. **Merch** — links gratis primero a plataformas externas (Bandcamp, Shopify del artista). Redirección sin comisión en MVP.
+8. **Tickets** — redirección gratis primero (Ticketmaster, Eventbrite). Integración con comisión post-tracción.
+
+**Sobre visualizaciones (timeline rap VE, mapa por ciudad, grafo collabs) — clarificación:**
+
+El founder dijo explícitamente: *"no quiero dedicarme a hacer blogs ni modos de visualización de esa data que sean la historia del rock venezolano en una línea de tiempo, por ciudad o diferente, continuar con lo demás."*
+
+Interpretación correcta: visualizaciones tipo "historia del rap VE en timeline / mapa / por ciudad" **NO son foco del MVP**. Son ornamentales. El foco son archivos + herramientas útiles (calculadora ingresos tipo) + monetización. Si en algún momento una visualización es funcional como SEO tool con tráfico real medible, entra como feature SEO discutida en Data & SEO chat — pero no las priorizamos como reemplazo del editorial. Editorial simplemente NO existe en el producto.
 
 **Features explícitamente NO MVP según founder:**
 
@@ -96,7 +101,8 @@ Ver `00-Executive/plan-maestro.md` para la versión completa de la visión (escr
 - Data dashboards para labels/promotores — post-MVP.
 - Tienda propia de merch — post-tracción. En MVP solo links externos.
 - Venta directa de tickets — post-tracción.
-- Editorial tradicional (blogs) — NO. Visualizaciones reemplazan.
+- Editorial tradicional (blogs) — NO existe en el producto.
+- Visualizaciones tipo "historia del rap VE" (timeline / mapa / grafo) — NO foco. Posibles como features SEO tools si alguna tiene tráfico real.
 - Messages / notifications internas — no mencionadas como prioridad.
 - Subscriptions / pagos — MVP es 100% gratis para fans.
 
@@ -245,7 +251,7 @@ La visión v1 en `00-Executive/vision.md`, `strategy.md`, `okrs.md` describía D
 
 La visión v2 (founder-inputs en este doc + `plan-maestro.md`):
 - "Tool + tech + community" (SIN editorial tradicional)
-- Con visualizaciones automáticas en vez de blogs
+- Sin editorial (no se reemplaza con visualizaciones tampoco — el editorial simplemente no existe en el producto)
 - Sin métricas imposibles de predecir
 - Enfoque multi-audiencia (4 perfiles) con monetización B2B para 3 de ellos
 

@@ -13,7 +13,7 @@
 - Verificación = badge VIP. Artistas auto-registrados = clientes directos = tag especial. UX VIP vs regular es feature.
 - Política: damos voz, no creamos contenido. Si AI escribe, voz configurable, no humanizada.
 - Social presence MVP: reservar 7 handles + automation de posts desde data del archivo.
-- Visualizaciones automáticas (timelines, mapas, grafo collabs) son hooks editoriales útiles para social. NO somos blogs.
+- NO somos blogs. NO foco editorial. Visualizaciones tipo timeline/mapa/grafo NO son prioridad — el founder lo descartó explícito. Si una visualización funciona como SEO tool con tráfico real, eso lo decide Data & SEO chat. Para social hooks usá data del archivo (releases nuevos, eventos, milestones), no visualizaciones forzadas.
 - Público primario: diáspora venezolana (Miami, España, Colombia, USA latino).
 
 ### Existing docs en folder

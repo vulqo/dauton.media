@@ -363,7 +363,7 @@ Claude Code reportó Sprint 2 completo:
 - `entity_stats` vacío para metrics de Spotify.
 
 **Estado operativo:**
-- Spotify circuit: OPEN hasta ~21:00 ART mañana (2026-04-25).
+- Spotify circuit: OPEN hasta ~21:00 ART de hoy (2026-04-25). Scheduled task verifica.
 - Queue auto-resume: sí, al primer success post-cooldown.
 - Sprint 5 arranca cuando queue drene sin errores (validación: 15/15 pillars con spotify_id).
 - TypeScript clean, preview site sirve data real.

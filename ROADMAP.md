@@ -41,14 +41,15 @@ Pero en MVP los perfiles de artistas YA EXISTEN (auto-generados por ingestion). 
 
 1. **Archivo público completo** — perfiles auto-generados de TODOS los artistas relevantes (filtros por relevancia: 10M+ followers primero, luego bajamos).
 2. **Herramientas SEO útiles para fans** — calculadora de ingresos (ejemplo). Otras a definir en Data & SEO. Cada herramienta es puerta de entrada al perfil completo del artista.
-3. **Visualizaciones de la data** — timeline del rap venezolano, mapa por ciudad, grafo de colaboraciones. NO blogs. Son interfaces de exploración generadas desde la data.
+3. **Herramientas útiles adicionales** — features que aumentan valor del archivo desde una perspectiva SEO/utility. La calculadora de ingresos es ejemplo. Otras a definir por Data & SEO chat. Visualizaciones tipo timeline/mapa/grafo NO son foco — solo entran si tienen tráfico SEO medible.
 4. **Verificación opcional para artistas** — badge VIP + capacidad de editar/agregar al perfil. Outreach masivo via email.
 5. **Eventos públicos** — populated vía Eventbrite y otras fuentes. Redirección a tickets en plataformas externas.
 6. **Merch público** — links gratuitos a tiendas externas del artista (Bandcamp, Shopify, etc.). Sin comisión en MVP.
 
 ### Lo que NO está en MVP (deferido)
 
-- Editorial tradicional (blogs, reviews, ensayos largos). Sustituimos con visualizaciones automatizadas.
+- Editorial tradicional (blogs, reviews, ensayos largos). NO existen en el producto.
+- Visualizaciones tipo "historia del rap VE" (timeline/mapa/grafo). NO son foco. Solo entran como SEO tools si una tiene tráfico real.
 - Tienda propia / hosting de merch. Solo redirección.
 - Venta directa de tickets. Solo redirección.
 - Dashboards B2B para promotores y labels. Post-MVP.

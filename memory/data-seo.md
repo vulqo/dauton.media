@@ -44,8 +44,8 @@
 - **Calculadora de ingresos** (mencionada por founder como ejemplo). Keyword: "cuánto gana X en Spotify". Stream count + payout formula.
 - **Discografía completa de X por año** — keyword cola larga.
 - **Quién produjo X** — keyword cola larga, único valor en español.
-- **Mapa del rap venezolano** — visualización geográfica con artists por city.
-- **Timeline rap latino** — visualización temporal con events + releases.
+- **Mapa del rap venezolano** — ⚠ visualización geográfica. Founder descartó visualizaciones tipo "historia del rap VE" como foco. Solo entra si keyword research demuestra tráfico real medible. Default: NO priorizar.
+- **Timeline rap latino** — ⚠ misma observación. NO priorizar salvo evidencia de tráfico SEO.
 - **Comparador de artistas** — feature que ya existe en design (CompareView).
 
 ## Pendientes de investigar (high priority)

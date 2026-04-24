@@ -20,7 +20,7 @@ Strategy/PM consolidó esto del founder antes de que abrieras este chat. Léelo,
 - **Monetización**: free para fans, monetización empieza con artistas/managers/venues/labels. Precios bajos $5/mes - $12/año según feature. Comisiones futuras sobre merch/tickets cuando haya tracción.
 - **MVP financiación**: al menos UNA vía clara o activable post-tracción.
 - **12 meses target**: producto funcional + demanda de fans.
-- **Editorial replantea**: NO blogs. Visualizaciones de la data (timeline rap VE, mapas, grafo collabs). Auto-generadas o tools interactivos.
+- **Editorial NO existe en el producto.** Sin blogs, sin reviews, sin ensayos. NO se reemplaza con visualizaciones — el founder dijo explícito "no quiero dedicarme a hacer blogs ni modos de visualización de esa data que sean la historia del rock venezolano en una línea de tiempo, por ciudad o diferente". Si aparece una visualización con tráfico SEO real, puede entrar como feature SEO en Data & SEO.
 - **Calculadora de ingresos** = ejemplo de SEO tool. Hay que pensar más casos.
 - **Outreach**: una vez perfiles armados, email masivo a artistas para verificar.
 
