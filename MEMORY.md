@@ -442,3 +442,30 @@ Working tree limpio. 106 archivos commiteados entre los 4. Total +10,971 / -1,90
 - **Bug fix aplicado:** `mbFetch` duplicaba `fmt=json` cuando el path ya lo traía, retornando 406. Fix: detectar `fmt=` antes de appendear. No rollback needed.
 
 **Stats commits:** 6 files, +709 / -10.
+
+### 2026-04-24 (Sprint 6.5 cerrado — Wikipedia + Genius + race fix)
+
+**Deliverables:**
+- `WikipediaClient` real con 3 métodos (`getSummary` con fallback es→en, `sparql`, `getCrossPlatformIds`). User-Agent reusa `MUSICBRAINZ_USER_AGENT`. Spacing 500ms + `withTimeout` 10s (15s SPARQL).
+- Wikipedia worker con 2 operations: `fetch_wikipedia_summary`, `resolve_wikidata_cross_ids`.
+- `GeniusClient` real con 4 métodos (`search`, `getSong`, `getArtist`, `getArtistSongs`). Bearer auth + spacing 200ms. 404 → null.
+- Genius worker con 3 operations: `resolve_genius_artist_by_name`, `fetch_genius_song_credits`, `fetch_genius_samples`.
+- `stage-3-bios.ts` scaffolded, `stage-4-credits.ts` docs actualizados.
+- **Race fix Sprint 4:** `spotifyWorker.fetch_artist_details` ahora retorna `retryable:true` cuando person lookup falla (antes era `retryable:false → dead-letter inmediato`). Los 21 dead_letter del Sprint 4 se pueden revivir con CLI.
+- CLI `scripts/admin/retry-dead-letter.ts`, `scripts/ingest/wiki-smoke.ts`, `scripts/ingest/genius-smoke.ts`.
+
+**External ID columns verificadas:** Claude Code confirmó que `people.apple_music_id, genius_id, musicbrainz_id, youtube_channel_id, wikidata_id, discogs_id` y `tracks.genius_id, has_lyrics_external_link` ya existen desde 0001 + 0008. **No nueva migración.**
+
+**Smoke tests (verdes):**
+- **wiki-smoke canserbero**: lang=es, extract "Tirone José González Orama, conocido artísticamente como Canserbero, fue un rapero...". QID Q18821745 resuelto vía MBID. Cross-IDs: `{musicbrainz_id, discogs_id}` (Wikidata no tiene Spotify/Apple/YT linkeados para este artista — OK, ya los tenemos).
+- **genius-smoke "Canserbero Es Épico"**: top hit id=719038, **producer=Kpú** (⚠ Genius dice Kpú, no Ahiezer como mi prompt asumía — posible alias o co-producer, el `credit-reconciler` skill lo resolverá cuando compare con MB credits en Stage 4). 1 sample relationship detectado.
+
+**Conflict data esperado — pattern:** MB y Genius pueden reportar credits diferentes para el mismo track. El `credit-reconciler` skill (stub en Sprint 3, implementar en Sprint 4 ejecución via Claude Max manual) es quien decide qué aceptar, qué descartar, qué marcar como `conflict` para admin review.
+
+**Commits pusheados:**
+- `08d1c95` · `feat(ingest): Wikipedia + Genius workers + Sprint 4 race fix (Sprint 6.5)`
+- `112577b` · `feat(scripts): retry-dead-letter admin CLI + wiki/genius smoke tests`
+
+**Issues encontrados:** ninguno.
+
+**Stats commits:** 12 files, +837 / -18.
