@@ -13,9 +13,12 @@ Thumbs.db
 
 # Editor
 .cursor/
-.claude/
 *.swp
 .vercel
+
+# Claude Code internals — IGNORE except agents/ (which we version)
+.claude/*
+!.claude/agents/
 
 # Reference material (not source)
 _Reference/design-system-v3/

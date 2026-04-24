@@ -1,63 +1,53 @@
 # _Execution — Dauton Media
 
-**Propósito:** workspace operativo donde vive la ejecución del proyecto, separado de
-la documentación de planning de los departamentos (00-09).
-
-Mientras la documentación departamental dice **qué** es el producto y **por qué**,
-este folder dice **cómo** se ejecuta el trabajo día-a-día.
+**Owner principal:** Strategy/PM (orchestration), Engineering (sprint prompts)
+**Propósito:** workspace operativo donde vive la ejecución del proyecto. Mientras la documentación departamental (00-09) dice **qué** y **por qué**, este folder dice **cómo** se ejecuta el trabajo día-a-día.
 
 ---
 
-## Estructura
+## Archivos clave vigentes (2026-04-25)
 
-```
-_Execution/
-├── README.md                          ← este archivo
-└── claude-design-setup/               ← setup para Claude Design
-    ├── README.md                      ← guía de uso del setup
-    ├── notes-field.md                 ← contenido para "Any other notes?"
-    └── assets-to-upload/              ← archivos para drag-and-drop
-        ├── 01-logo-master-color.png
-        ├── 02-logo-master-black.png
-        ├── 03-logo-horizontal-color.png
-        ├── 05-monograma-favicon.png
-        ├── 06-manual-identidad-dauton-store.pdf
-        └── 07-design-brief.pdf
-```
+### Coordination + setup
 
----
+- `cowork-handoff-prompt.md` — prompt original de bootstrap del proyecto
+- `cowork-setup-guide.md` — guide de setup
+- `credentials-checklist.md` — tracker de credenciales con valores reales
+- `commit-sprints-3-4.sh` — script ya ejecutado (legacy, mantener como referencia)
 
-## Cómo arrancar
+### Playbooks (referencia operativa)
 
-### 1. Setup de Claude Design (YA)
+- `ingestion-playbook.md` — 7 stages de ingestion (Data & SEO + Engineering)
+- `ingestion-deployment.md` — deploy guide
 
-Ir a `claude-design-setup/` y seguir el `README.md`. Te toma 10-15 minutos y deja
-el design system configurado para todas las sesiones futuras.
+### Sprint prompts (snapshots inmutables después de pegar)
 
-### 2. Prompt pack para generación de pantallas (SIGUIENTE)
+- `claude-code-prompt-sprint1.md` ... `claude-code-prompt-sprint6.md`
+- `claude-code-prompt-sprint6.5.md`
+- `claude-code-prompt-design-sync-v3.md`
+- `claude-design-prompt-sprint1.md`
 
-Después del setup exitoso, generaremos el prompt pack secuencial:
+### Audits + research
 
-- FASE A: Brand evolution (3 prompts)
-- FASE B: Core screens (5 prompts)
-- FASE C: Editorial & user flows (3 prompts)
-- FASE D: Shop integration (1 prompt)
+- `design-vs-repo-audit.md` — audit Design v3 vs repo · 12 gaps identificados
+- `product-architecture-audit.md` — audit producto · 10 secciones · input para Product Architecture chat
+- `research-events-apis.md` — Bandsintown/Setlist.fm/Ticketmaster evaluados · veredicto Setlist.fm = Stage 7a
 
-Ese pack se guardará en `_Execution/prompt-pack/` una vez validemos el setup.
+### Setup legacy (Claude Design v1)
+
+- `claude-design-setup/` — assets para setup original de Claude Design
+- `prompt-pack/` — pack de 12 prompts originales para Claude Design
 
 ---
 
-## Próximos sub-folders planificados
+## Reglas
 
-A medida que avancemos en la ejecución, este folder se irá poblando con:
+- Prompts de sprint son **inmutables** después de pegar a Claude Code. Si cambian requirements, nuevo prompt con nombre nuevo.
+- Audits son docs de un momento — no se actualizan. Nuevo audit = archivo nuevo con fecha.
+- Scripts shell ejecutados quedan como referencia (transparencia > espacio).
 
-- `prompt-pack/` — biblioteca de prompts para Claude Design
-- `design-iterations/` — outputs de Claude Design guardados versionados
-- `skills/` — skill definitions para Cowork y Claude Code
-- `agents/` — configs de OpenClaw agents headless
-- `decisions/` — ADRs (Architecture Decision Records)
-- `CLAUDE.md` — rules file para Claude Code cuando exista el repo de código
+## Quién escribe acá
 
----
-
-*Ver `../README.md` para overview del proyecto completo.*
+- **Strategy/PM** — la mayoría de los archivos (prompts de sprint, audits, coordination scripts).
+- **Engineering** — agrega sprint prompts cuando los redacta.
+- **Data & SEO** — agrega research turns acá.
+- **Otros agents** — pueden agregar audits/research si pertenece a operación cross-area.
