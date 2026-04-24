@@ -1387,3 +1387,5 @@ main{max-width:1440px;margin:0 auto;padding:0 24px 120px;}
   .dm-article-grid{grid-template-columns:1fr;}
   .dm-article-head .dm-article-title{font-size:44px;}
 }
+
+.dm-empty-state { padding: 32px 0; opacity: 0.35; text-align: center; }
