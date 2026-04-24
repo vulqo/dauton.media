@@ -415,3 +415,30 @@ Working tree limpio. 106 archivos commiteados entre los 4. Total +10,971 / -1,90
 5. **Glyphs preservados correctamente**: `✓ → ← ∅ ♪ ×` son convención existente (no pictográfico). Removidos de UserListPage los pictográficos `♡ ↗ ⧉ ◆` por regla SKILL.md.
 
 **Stats del commit:** 26 files, +1278 / -51.
+
+### 2026-04-24 (Sprint 6 cerrado — MusicBrainz scaffold + smoke sobre 2 pillars)
+
+**Deliverables:**
+- Migración **0008** `20260424030000_add_external_ids.sql`: columnas nuevas `people.wikidata_id`, `people.discogs_id`, `tracks.musicbrainz_id`. (`people.musicbrainz_id`, `people.youtube_channel_id`, `releases.musicbrainz_id` ya existían del 0001.)
+- `MusicBrainzClient` real con 6 métodos (`getArtist`, `searchArtist`, `resolveArtistByUrl`, `resolveReleaseGroupByUrl`, `getReleaseGroup`, `getRecording`). Rate limit 1 req/s + spacing 1.1s + `withTimeout` 10s + `MBRateLimitError` custom. User-Agent only, no API key.
+- Worker con 4 operations: `resolve_mbid_by_spotify`, `fetch_artist_rels`, `fetch_release_group_recordings`, `fetch_recording_credits`.
+- `RELATION_MAP` con 15 tipos MB → `production_credits` / `writing_credits` / `collaborations`.
+- Pipeline `stage-4-credits.ts` scaffolded con throw explícito + rationale docs (execution deferred al Sprint 7 post-Stage-2).
+- CLI `scripts/ingest/mb-smoke.ts`.
+
+**Smoke test — 2/2 pillars resueltos:**
+
+- **Canserbero**: MBID `70a3344d-3f48-4843-ac93-e9e031d86b01` via search fallback (MB sin link Spotify registrado, score 100). 14 relations, 23 release-groups. Datos poblados: `gender=Male`, `birth_date=1988-03-11` (canonical MB), `death_date=2015-01-20`, `status=deceased`, `discogs_id=3339525`, `wikidata_id=Q18821745`, `youtube_channel_id=UC-Gh7ndBnNZvGRjCzlt2Ecw`.
+- **Apache**: MBID `54e965b5-235e-415f-bf0c-3bef104bacc5` via Spotify URL (first try). 3 relations, 14 release-groups. Datos poblados: `gender=Male`, `birth_date=1982-05-15`.
+
+**Corrección importante:** mi prompt Sprint 6 asumía `Canserbero birth_date = 1988-08-11`. MB dice **1988-03-11**. MB es la fuente canónica — usar MB, no memoria de Luis ni de Claude Code. MEMORY queda actualizada.
+
+**Commits pusheados:**
+- `be5a0bb` · `feat(db): migration 0008 — add external IDs`
+- `f50cae4` · `feat(ingest): MusicBrainz client + worker scaffold + smoke test (Sprint 6)`
+
+**Deuda técnica nueva:**
+- **Gender casing:** MB retorna `"Male"` capitalizado, nosotros asumíamos lowercase. No bloquea (columna es text). Si usamos enum estricto, `.toLowerCase()` en el worker antes de insert. Low priority.
+- **Bug fix aplicado:** `mbFetch` duplicaba `fmt=json` cuando el path ya lo traía, retornando 406. Fix: detectar `fmt=` antes de appendear. No rollback needed.
+
+**Stats commits:** 6 files, +709 / -10.
