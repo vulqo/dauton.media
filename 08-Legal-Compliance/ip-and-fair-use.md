@@ -1,269 +1,243 @@
-# IP and Fair Use
+# IP & Fair Use — Dauton Media
 
-**Department:** Legal & Compliance
-**Owner:** Luis Figuera
-**Last updated:** April 22, 2026
-
----
-
-## Purpose
-
-Culture Wiki operates at the intersection of factual reference (protected), editorial commentary (protected), and music industry data (mostly public but with complications). This document clarifies our posture on intellectual property and fair use, guides operational decisions, and identifies risks.
-
-This document is internal. It informs how we build and operate. It does not replace legal advice, which is required before public launch and for specific edge cases.
+**Owner:** Business & Legal agent
+**Última actualización:** 2026-04-25
+**Status:** v2 — reemplaza v1 (era "Culture Wiki")
 
 ---
 
-## Core principle
+## Propósito
 
-**We publish facts about the music industry. We do not republish the music industry's content.**
-
-Facts — who recorded what when, who produced which track, who toured with whom — are not copyrightable. The expression, sound recordings, lyrics, images, videos, and artwork produced by artists and labels are copyrighted.
-
-We build a factual graph on top of public information. We link to the copyrighted works. We do not host them.
+Este doc clarifica la posición de Dauton Media sobre IP + fair use, guía decisiones operativas, e identifica riesgos. Es interno — informa cómo construimos. Versión pública sanitizada va en `/methodology`.
 
 ---
 
-## What we do not reproduce
+## Principio central
 
-### Music
-- We do not host audio files.
-- We do not embed unauthorized streaming players.
-- We link to official Spotify, Apple Music, YouTube where official versions exist.
-- We do not link to unauthorized uploads or piracy sites.
+**Publicamos facts sobre la industria musical hispana. NO republicamos el contenido de la industria musical.**
+
+Facts — quién grabó qué cuándo, quién produjo cuál track, quién colaboró con quién — no son copyrightables (precedente *Feist Publications v. Rural Telephone*, SCOTUS 1991). Las expresiones, sound recordings, lyrics, imágenes, videos y artwork producidos por artistas y labels SÍ son copyrighted.
+
+Construimos un grafo factual sobre información pública. Linkeamos a los trabajos copyrighted. No los hosteamos.
+
+---
+
+## Lo que NO reproducimos
+
+### Música
+- NO hosteamos audio files.
+- NO embebemos streaming players no autorizados.
+- Linkeamos a Spotify, Apple Music, YouTube oficiales.
+- NO linkeamos a uploads no autorizados o sitios de piratería.
+- Embed oficial de Spotify (iframe) permitido — es la distribución del artista.
 
 ### Lyrics
-- We do not display lyrics.
-- We link to Genius (or equivalent) when lyrics exist there.
-- If we quote a lyric line in an editorial piece, we treat it as any other copyrighted quote — brief, transformative, for purposes of commentary or analysis. Maximum one or two lines per piece. Prefer paraphrase.
+- NO mostramos lyrics.
+- Linkeamos a Genius cuando existan.
+- Si citamos una línea en editorial (raro — no somos editorial blog), fair use con max 1-2 líneas por pieza, transformativo.
 
 ### Album art / photos
-- We display album covers on release pages under **fair use for factual reference** (identifying the release). This is a long-standing industry practice (Discogs, RYM, AllMusic all do this).
-- We display artist photos we've either: licensed, received explicit permission for, used from Creative Commons sources with attribution, or that are clearly in the public domain.
-- Photos sourced via social media or press photos without explicit permission are flagged for eventual replacement. We use them cautiously, at small size, with attribution, and remove on request.
+- **Album covers:** mostramos en páginas de release bajo **fair use para factual identification**. Precedente industrial firme (Discogs, RYM, AllMusic, Wikipedia — todos lo hacen sin litigation).
+  - Size cap: thumbnail 300×300, full 800×800 max.
+  - Attribution al label cuando conocido.
+- **Photos de artistas:** jerarquía estricta (ver `legal-audit-master.md` #3):
+  1. Priority 1: artista sube su foto vía claim flow (license grant).
+  2. Priority 2: Wikipedia/Commons con license CC compatible.
+  3. Priority 3: press photos del artista/label con attribution + consent documentado.
+  4. **PROHIBIDO:** Getty/AP/stock agency sin licencia.
 
 ### Music videos
-- We link to official uploads on YouTube.
-- We may embed official uploads using the official YouTube embed (which is the artist's own distribution choice).
-- We never re-upload videos.
+- Linkeamos a uploads oficiales en YouTube.
+- Embebemos usando el embed oficial de YouTube (es la distribución del artista/label).
+- NUNCA re-subimos videos.
 
-### Article text (from press sources)
-- We quote briefly (≤15 words) for attribution.
-- We summarize in our own words.
-- We do not reproduce paragraphs or substantial excerpts.
-- We link to the original article for readers who want to read in full.
+### Press article text
+- Citamos brevemente (≤15 palabras) con atribución.
+- Summarizamos en palabras propias.
+- NO reproducimos párrafos ni excerpts substanciales.
+- Linkeamos siempre al original.
 
 ### Podcast audio / transcripts
-- Phase 2+ if we transcribe podcasts: short excerpts only, transformed into factual extraction (who said what, when). Full transcripts not reproduced.
+- Fase futura: si transcribimos podcast oficial con Whisper sobre audio propio del creator — fair use para factual extraction.
+- NUNCA scrapeamos transcripts de YouTube UI (viola ToS).
 
 ---
 
-## What we create
+## Lo que creamos
 
-### Our own text
-All editorial prose on Culture Wiki is original writing by our staff or contributors. No Wikipedia text pasted. No rewording so close to a source that it qualifies as derivative.
+### Nuestro propio texto
+Todo contenido editorial en Dauton Media es original — nosotros o contributors. NO texto de Wikipedia pegado. NO rewording tan cercano que califique como derivativo.
 
-AI-assisted writing follows the same standard: AI may help draft, but the final text is original, edited, and fact-checked.
+**Bios AI-assisted:** el AI puede ayudar a draftear, pero el texto final es original, source-grounded, fact-checked. Ver pipeline en `legal-audit-master.md` #5.
 
-### Our own data structure
-The graph — the way we organize entities and relationships — is our original editorial work, even when the underlying facts came from public sources.
+### Nuestra estructura de data
+El grafo — cómo organizamos entidades y relaciones, qué artistas incluimos, qué categorizamos cómo — es nuestro IP editorial, protegido como compilation (precedente *Feist*).
 
-### Our own imagery
-Where we create supporting imagery (OG images, editorial illustrations, scene diagrams), we produce them or commission them. No stock imagery of music stereotypes.
+### Nuestra imagen + herramientas
+Calculadora de ingresos, visualizaciones, timelines, grafos — código + diseño + data propia. Nuestro IP.
 
 ---
 
-## Fair use analysis (our posture)
+## Fair use analysis (nuestra posición — US law)
 
-US fair use considers four factors:
+US fair use (17 USC §107) considera 4 factores:
 
 ### Factor 1: Purpose and character of the use
-Our use is:
-- **Transformative** — we organize, contextualize, and cross-reference; we are not a substitute for the original.
-- **Non-commercial in nature** even when we monetize (reference archives are information services, akin to newspapers).
-- **Educational and factual** — we document, inform, and preserve cultural history.
+Nuestro uso es:
+- **Transformativo** — organizamos, contextualizamos, cross-referenciamos; no somos substituto del original.
+- **Informacional + educativo** — documentamos, preservamos historia cultural.
+- Commercial en naturaleza (post-monetization) pero **reference archives son information services** con strong fair use precedent incluso cuando monetizan.
 
 ### Factor 2: Nature of the copyrighted work
-- Facts are not copyrightable.
-- Factual expressions (press articles reporting events) receive thinner copyright protection than creative expression.
-- Album titles, names, dates, discographies are facts.
+- Facts no son copyrightables (*Feist*).
+- Factual expressions (prensa reportando eventos) tienen thin copyright protection.
+- Album titles, nombres, fechas, discographies son facts.
 
 ### Factor 3: Amount and substantiality of use
-- We use minimal amounts — album covers at small size, brief quotes, factual extraction.
-- We do not use "the heart" of any work (e.g., a signature hook, a memorable lyric line).
+- Usamos mínimos — thumbnails de cover art, quotes breves, factual extraction.
+- NO usamos "el corazón" de ningún trabajo (hook signature, línea memorable de lyric).
 
 ### Factor 4: Effect on the market
-- We do not substitute for any original work. We drive traffic to streaming, press articles, and artists' own platforms.
-- We plausibly increase the market for documented artists and works (we are a discovery engine).
+- NO substituimos ningún trabajo original. Drivemos tráfico a streaming, press articles, plataformas del artista.
+- Plausiblemente **aumentamos** market para artistas documentados (somos discovery engine).
 
-This analysis applies to US law (Vulqo LLC is US-registered). Similar fair-dealing analyses exist in Venezuelan, EU, and other jurisdictions, with variations. Legal counsel to verify per jurisdiction before expansion.
+Este análisis aplica a US law (Vulqo LLC US-registered). Fair dealing equivalents existen en Venezuelan, EU, y otras jurisdicciones, con variaciones. El agent mantiene position por jurisdicción en `compliance-calendar.md` + research items.
 
 ---
 
-## Specific copyright risk areas
+## Risk areas específicos
 
 ### Risk: Album cover art
-- **Precedent:** Discogs, RYM, AllMusic, Genius, and Wikipedia all display album art for factual identification. Industry-standard practice.
-- **Our approach:** display at reasonable thumbnail sizes. Link to source (label / official channel). Respect takedown requests.
-- **Mitigation:** maintain a takedown response process.
+- **Precedente:** Discogs, RYM, AllMusic, Genius, Wikipedia — todos muestran cover art para factual ID. Industry-standard 20+ años sin litigation.
+- **Nuestro approach:** thumbnails + link to source (label cuando conocido) + respeto a takedown.
+- **Mitigation:** DMCA process operativo.
 
-### Risk: Artist photographs
-- **Highest risk area.** Press photos are often stock agency photos with aggressive licensing.
-- **Our approach:**
-  - Prefer: artist-provided photos, Creative Commons, public-domain historical.
-  - Fallback: press photos used at small size with attribution.
-  - Eliminate: uploaded stock agency photos without license.
-- **Mitigation:** prioritize outreach to artists to request usable photos directly.
+### Risk: Photos de artistas
+- **Highest risk area.** Press photos frecuentemente son stock agency (Getty, AP) con aggressive enforcement.
+- **Approach:** jerarquía de sourcing (arriba) + photo audit log en DB (columns `photo_source`, `photo_license`, `photo_attribution`).
+- **Mitigation:** priorizar claim flow para obtener photos directly del artista con license grant.
 
 ### Risk: Embedding social posts
-- When embedding a tweet or Instagram post as source evidence, use the platform's official embed. The platforms have licenses to redistribute.
-
-### Risk: Video frame grabs for illustration
-- Small, contextual use may be fair. Frame grabs of music videos used to identify visuals of a release, with attribution to the official video: low risk.
-- Phase 2 consideration.
+- Oficial embed (Twitter, IG, YouTube) = plataforma tiene license para redistribuir. Low risk.
+- NUNCA screenshot + re-host.
 
 ### Risk: Press article text
-- Quotes ≤15 words per source. One quote per source per piece maximum. Summarize in our words.
-- Link always to original.
-- Never reproduce full paragraphs.
-
-### Risk: Lyrics in editorial
-- Maximum 1-2 lines quoted per editorial piece for commentary/analysis.
-- Never on entity pages.
+- Quotes ≤15 palabras por source. Summarize en nuestras palabras. Link al original.
 
 ### Risk: AI training data allegations
-- We do not train AI models on copyrighted content. We use third-party AI providers (Anthropic, Voyage) whose own training practices are their responsibility.
-- We use AI to process public and licensed content, not to generate derivative creative works.
+- NO entrenamos AI models con copyrighted content.
+- Usamos third-party AI providers (Anthropic) cuyas training practices son responsabilidad de ellos.
+- Usamos AI para procesar contenido público y licensed, no para generar trabajos derivativos creativos.
+
+### Risk: Database rights
+- En US: data = facts (no copyrightable), compilation selection/arrangement SÍ protegido.
+- En UE: Database Directive 96/9/EC da sui generis protection si inversión substancial en obtaining/verifying/presenting data. **Nos aplica** → nuestra base de datos está protegida en UE.
+- Consecuencia: podemos LICENCIAR nuestra data (Track 7).
+- Scrapers sistemáticos de Dauton infringen.
+
+### Risk: Defamation
+- Solo publicamos facts sensitivos (criminal record, disputes profesionales) cuando:
+  - Reportados por Tier 1-2 sources independientes, o
+  - Auto-reconocidos por el artista públicamente.
+- Sensitive categories (salud, religión, sexualidad, política) **NUNCA** entran al archive auto.
+
+### Risk: Right-of-publicity (US + states strict como CA, TN)
+- Uso de nombre + carrera del artista para factual ID = reference-work práctica estándar, protected.
+- Uso en advertising/marketing commercial de Dauton (ej. "Join, as seen by [Artist]") **SIN consent del artista = violation.** Ban.
 
 ---
 
-## Database rights
+## Base de datos — licensing propio
 
-Data itself (facts) is not copyrighted in US law. The selection, arrangement, and curation of data *can* receive copyright protection as a compilation.
+Cuando activemos Track 7 (data licensing B2B, año 2):
 
-**Our database is protected as a compilation** — the specific way we structure entities, the editorial decisions about what constitutes a noteworthy artist, the curation of sources and their framing.
+**Licencia propuesta:**
+- **Uso no-comercial académico:** free con cita.
+- **Uso comercial estándar:** tier pricing (ver `09-Business/pricing-strategy.md`).
+- **Enterprise:** acuerdos custom.
 
-Consequences:
-- Our data can be licensed (see `09-Business/monetization.md`).
-- Scrapers who systematically copy our database may infringe.
-- Third-party data (MusicBrainz, Wikidata, etc.) we use is open by license; we comply with their terms.
-
-### License of our own data (when we're ready to share)
-
-Likely approach:
-- **Non-commercial use:** freely available under CC BY-SA or equivalent.
-- **Commercial use:** requires licensing agreement.
-- **Academic use:** free with citation.
-
-Decision on specific license terms to be made closer to data licensing launch.
+**Limitaciones licensee:**
+- NO incluir data de Spotify raw (ToS Spotify prohíbe redistribución).
+- NO incluir data de YouTube raw (Developer Policy 30-day rule).
+- SÍ incluir: data propia + MB (CC0) + Wikidata (CC0) + data agregada propia.
+- DPA obligatorio.
 
 ---
 
 ## Trademark
 
-### Our brand
-"Culture Wiki" (or final name, pending) will be trademarked when name is final. Cost ~$300-500 for US registration.
+### Nuestra marca
+"Dauton Media" pendiente de trademark filing USPTO. Research item P0.5 en `legal-research-list.md`.
+- Cost DIY TEAS Plus: $350.
+- Cost con trademark lawyer: $500-1,500 all-in (recomendado para primera vez).
 
-### Other brands mentioned
-Artist names, label names, crew names — we use them descriptively to identify the subjects. This is nominative fair use and generally non-infringing.
-
----
-
-## Takedown and DMCA
-
-### DMCA agent registration
-Before public launch, Vulqo LLC registers a DMCA designated agent with the US Copyright Office. Cost: $6/filing. Required for safe harbor under the DMCA.
-
-Agent information published on the site at `/legal/dmca`.
-
-### Takedown process
-
-Upon receipt of a proper DMCA notice or equivalent takedown request:
-
-1. Acknowledge receipt within 72 hours.
-2. Evaluate the claim:
-   - Is the claim facially valid?
-   - Is the content clearly infringing or is it fair use?
-3. If content is clearly infringing: remove or restrict. Notify the uploader if applicable.
-4. If content is fair use and we have a strong position: respond with our legal basis for retention, invite counter-notice.
-5. Track all takedown requests in `/legal/takedowns-log.md` (internal).
-6. For repeat claimants with weak claims: document pattern, may push back more firmly.
-
-### Counter-notice
-Users whose corrections or content is removed pursuant to a DMCA takedown can submit a counter-notice.
-
-### Bad-faith takedowns
-Legally, bad-faith takedowns are actionable. We reserve the right to respond accordingly.
+### Otras marcas mencionadas
+Nombres de artistas, labels, crews — usados descriptivamente para identificar sujetos. **Nominative fair use**, generalmente non-infringing (*New Kids on the Block v. News America Publishing* 9th Cir. 1992).
 
 ---
 
-## Defamation and right-of-publicity
+## Takedown + DMCA
 
-### Defamation risks
-Facts that could harm an artist's reputation if false:
-- Criminal activity.
-- Addictions, mental health issues.
-- Romantic / family controversies.
-- Professional disputes.
+Ver `takedown-disputes.md` para proceso completo con templates.
 
-We only publish such facts when:
-- Reported by Tier 1-2 sources independently.
-- Or self-acknowledged by the artist publicly.
-
-### Right-of-publicity
-Using an artist's name and likeness for factual identification is standard reference-work practice and protected. Using their name/likeness in commercial advertising without consent is not.
-
-We do not use artist names/likenesses in marketing of our own brand (e.g., "Join Culture Wiki, mentioned by [Artist]") unless artist consents.
+Pre-launch obligatorio:
+- DMCA Designated Agent registrado con US Copyright Office ($6). Required para safe harbor 17 USC §512.
+- Agent info publicada en `/legal/dmca`.
+- Endpoint + form operativos en `/legal/takedown`.
 
 ---
 
-## Terms of Service considerations
+## ToS considerations para users
 
-Key IP-related terms in user ToS (see `terms-draft.md`):
+Key IP-related terms en user ToS (`terms-draft.md` §5, §7, §8):
 
-- Users warrant that content they submit (corrections, lists, articles) doesn't infringe third-party rights.
-- Users grant us a license to display, modify, and redistribute their submissions as part of the archive.
-- Users can request removal; we retain accepted factual corrections as part of the archive.
-- We disclaim responsibility for user-submitted content beyond reasonable moderation.
+- Users garantizan que contenido que envían no infringe third-party rights.
+- Users grant license a Dauton para display + redistribute sus submissions como parte del archive.
+- Users pueden pedir remoción — retenemos correcciones factuales accepted como parte del archive.
+- Disclaimamos responsabilidad por user-submitted content más allá de moderation razonable (Section 230 safe harbor US).
 
 ---
 
-## Risk ranking
+## Risk ranking consolidado
 
-| Risk | Likelihood | Severity | Our mitigation |
+| Risk | Likelihood | Severity | Mitigación primaria |
 |---|---|---|---|
-| Photo rights claim | Medium | Low-medium | Sourcing hierarchy + takedown process |
-| Press scraping complaint | Low | Low | Quote <15w, attribute, link out |
-| Label / artist objection to sourced facts | Low-medium | Low | Sourcing rigor, correction process |
-| Defamation claim | Low | Medium | Source requirements on sensitive claims |
-| Scraping of our data | Low (early) → Medium (later) | Low-medium | Rate limits, ToS clarity, eventual API |
-| AI content concern | Low | Low | Human editing, factual nature of AI assist |
+| Photo rights claim | Media | Baja-Media | Sourcing hierarchy + photo audit log + takedown |
+| Press scraping complaint | Baja | Baja | Quote <15w, atribución, link out |
+| Label / artist objection a facts | Baja-Media | Baja | Source rigor + correction process + claim flow |
+| Defamation claim | Baja | Media-Alta | Source requirements + sensitive categories blacklist |
+| Scraping de nuestra data por tercero | Baja (early) → Media (later) | Baja-Media | Rate limits + ToS claridad + eventual API con terms |
+| AI content concern | Baja | Baja | Source-grounding + disclaimers + review Tier 1 |
+| Database rights infringement | Baja | Media | Terms claros + sui generis EU protection |
 
 ---
 
-## What to do if we receive a legal inquiry
+## Qué hacer si recibimos legal inquiry
 
-1. Do not respond immediately.
-2. Forward to Luis.
-3. Luis reviews and consults legal counsel if serious.
-4. Respond within the required legal timeline.
-5. Document in `/legal/inquiries-log.md`.
-
-Serious matters (lawsuits, government orders) get counsel immediately.
-
----
-
-## Pre-launch legal checklist
-
-- [ ] DMCA agent registered with US Copyright Office.
-- [ ] Privacy policy finalized and reviewed by counsel.
-- [ ] Terms of Service finalized and reviewed by counsel.
-- [ ] Cookie policy or explicit disclosure if using cookies beyond essential.
-- [ ] Trademark filed for brand name (or at least filed).
-- [ ] Photo usage audit: all launch-day photos have identified source and permission basis.
-- [ ] About page and methodology page drafted with clear source transparency.
-- [ ] Contact emails set up: privacy@, legal@, copyright@, dmca@.
+1. NO responder substantively.
+2. Forward a founder.
+3. Founder + agent evalúan categoría (ver `takedown-disputes.md`).
+4. Si categoría A-D: responder vía template.
+5. Si categoría E (C&D, lawsuit): **TRIGGER abogado humano**. Solo ack mínimo + contratar counsel.
+6. Documentar en `takedowns-log.md`.
 
 ---
 
-*See also: [`privacy-policy-draft.md`](./privacy-policy-draft.md), [`terms-draft.md`](./terms-draft.md)*
+## Pre-launch legal checklist (consolidado)
+
+- [ ] DMCA agent registrado con US Copyright Office.
+- [ ] Privacy policy v2 live.
+- [ ] Terms v2 live.
+- [ ] `/legal/dmca` + `/legal/takedown` pages operativos.
+- [ ] Trademark search ejecutado + decisión filing.
+- [ ] Attribution fuentes visible en footer.
+- [ ] Photo audit log implementado (columns en DB).
+- [ ] Cover art size cap aplicado (Engineering).
+- [ ] Email aliases operativos: privacy@, legal@, dmca@, corrections@.
+- [ ] Sensitive categories blacklist aplicada en bio pipeline.
+- [ ] No IG scraper activo (confirmar).
+- [ ] Takedowns-log.md creado.
+
+---
+
+*See also: [`privacy-policy-draft.md`](./privacy-policy-draft.md), [`terms-draft.md`](./terms-draft.md), [`takedown-disputes.md`](./takedown-disputes.md), [`legal-audit-master.md`](./legal-audit-master.md), [`tos-compliance.md`](./tos-compliance.md).*
