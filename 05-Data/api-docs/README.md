@@ -23,6 +23,7 @@ propaga a los workflows.
 | 7 | **Wikipedia / Wikidata** | Stage 3 (bios) | [`wikipedia-wikidata.md`](./wikipedia-wikidata.md) | https://en.wikipedia.org/api/rest_v1 |
 | 8 | **OpenAI Whisper** | Stage 6 fallback audio | [`openai-whisper.md`](./openai-whisper.md) | https://platform.openai.com/docs/api-reference/audio |
 | 9 | **Supabase** | Always (DB + Auth) | [`supabase.md`](./supabase.md) | https://supabase.com/docs |
+| 10 | **Eventbrite** | Stage 7b (events futuros, diáspora) | [`eventbrite.md`](./eventbrite.md) | https://www.eventbrite.com/platform/api |
 
 ---
 
