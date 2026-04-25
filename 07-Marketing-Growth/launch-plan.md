@@ -1,256 +1,381 @@
-# Launch Plan
+# Launch Plan — Octubre 2026
 
 **Department:** Marketing & Growth
-**Owner:** Luis Figuera
-**Last updated:** April 22, 2026
+**Owner:** Community & Outreach
+**Last updated:** 2026-04-24 · **rewritten v2**
+**Status:** propuesta — pendiente founder feedback.
+
+**Nota:** esta versión reemplaza el launch-plan anterior (estaba escrito bajo la visión "Culture Wiki editorial heavy", ya superada). La nueva visión es fan-first + archivo + tools + zero editorial tradicional.
 
 ---
 
 ## Launch philosophy
 
-Culture Wiki launches **quietly, then builds to loud**. The site exists publicly before anyone promotes it. Press outreach happens only after the product is demonstrably excellent on the 15 pillar artists.
+Dauton lanza **silencioso y sustentado**. No buscamos "launch day viral". Buscamos que al terminar el launch month tengamos:
 
-A rushed, loud launch to an incomplete product would burn our credibility permanently. Journalists check once; if the first impression is thin, they don't come back.
+1. 50+ perfiles ricos públicamente explorables.
+2. 3 tools SEO activas rankeando para al menos 5 keywords.
+3. 500+ emails en newsletter.
+4. 3-5 menciones orgánicas de periodistas / creadores latinos.
+5. 10+ artistas con claim iniciado.
+6. Base de contenido social automatizado corriendo en piloto automático.
 
-Better to have 1,000 right people discover a polished site than 50,000 wrong people dismiss a mediocre one.
-
----
-
-## Three phases
-
-### Phase A — Soft launch (Week 10)
-**Audience:** ~50 people (close circle, tested early).
-**Goal:** sanity check, find last-mile bugs, gather raw reactions.
-**What's live:** the whole site, publicly accessible, no marketing.
-**Signal we moved to Phase B:** no blocking issues in feedback for 7 days.
-
-### Phase B — Quiet launch (Weeks 11-12)
-**Audience:** ~500-2,000 people.
-**Goal:** organic discovery begins, first meaningful external backlinks.
-**Activities:** limited outreach to aligned independents, one-on-one sharing with specific journalists.
-**Signal we moved to Phase C:** 1,000+ organic visits, first external piece mentioning us, 5+ referring domains.
-
-### Phase C — Public launch (Month 4)
-**Audience:** wide.
-**Goal:** press pickup, social visibility, first newsletter growth.
-**Activities:** press tip-sheet sent, social accounts activated with sustained cadence, cross-promotion with creators.
+Viral sin producto profundo quema credibilidad para siempre. Preferimos 2K usuarios correctos que vuelven, antes que 100K curiosos que nunca regresan.
 
 ---
 
-## Phase A — Soft launch (Week 10)
+## Timeline macro (mayo 2026 → octubre 2026)
 
-### The 7-day plan
-
-**Day 1 (deploy day):**
-- Final pre-launch checklist complete (see `01-Product/mvp-scope.md`).
-- Production deploy.
-- Confirm all domains resolve, all pages render.
-- Send private email to ~20 close people with direct link. Ask for candid feedback.
-
-**Days 2-3:**
-- Monitor Sentry, Plausible, Vercel logs.
-- Respond to every feedback message personally.
-- Fix critical bugs immediately.
-
-**Days 4-5:**
-- Second ring: send to ~30 more people (extended circle, niche community members).
-- Record feedback patterns.
-
-**Days 6-7:**
-- Synthesize feedback.
-- Fix what matters, ignore what doesn't.
-- Decide: are we ready for Phase B?
-
-### Who's in the soft-launch circle
-
-- Venezuelan rap fans in Luis's network.
-- Hip-hop journalists (a few specific people, not mass mail).
-- Fellow developers / designers who give product-level feedback.
-- Friends and family who represent "normal user" perspective.
-
-### What we ask them
-
-- First impression at the homepage? Confusing or clear?
-- Pick an artist and navigate. Did you want to click anywhere that wasn't clickable?
-- Was anything missing you expected?
-- Anything that felt slow, broken, or ugly?
-- Would you share this with someone? With whom?
+```
+MES 1 - MAYO     FOUNDATION      handles, waitlist, infra email, primer contenido
+MES 2 - JUNIO    SEEDING         playlists Spotify, contenido 3x/semana, Discord soft
+MES 3 - JULIO    CREATIVE PUSH   mini-docs AI, primera tool SEO, micro-influencer colab
+MES 4 - AGOSTO   COMMUNITY BUILD newsletter formal, segundas tools, Reddit AMA
+MES 5 - SEPT     OUTREACH+PRESS  masivo a artistas, press kit, embargo stories
+MES 6 - OCT      DAUTON DAY      launch event digital, 7 días intensivos, PR push
+```
 
 ---
 
-## Phase B — Quiet launch (Weeks 11-12)
+## MES 1 — MAYO 2026: Foundation
 
-### What becomes active
+**Meta del mes:** tener toda la infra lista para ejecutar y capturar las primeras 200 señales de interés (waitlist + primeros followers).
 
-- Twitter/X account posts start (low cadence: 2-3 per week initially).
-- Instagram account posts start.
-- Newsletter welcome sequence live.
-- Footer/about page references that we're "in beta."
+### Semana 1
 
-### Outreach list
+- [ ] Reservar 7 handles: `@dautonmedia` en IG, X, TikTok, YouTube, Threads, Bluesky; `Dauton Media` en Spotify. Owner: Luis (15 min).
+- [ ] Configurar dominio `dauton.media` con SPF + DKIM + DMARC para Resend. Owner: Engineering ticket.
+- [ ] Setup cuenta Resend + test email a 3 emails personales para validar entregabilidad.
+- [ ] Setup Plausible en dauton.media (no cookies, no GDPR banner).
+- [ ] Landing page pre-launch con waitlist: `dauton.media/lista` — animación de grafo de colaboraciones Canserbero-Apache como hook visual. Captura email + ciudad.
+- [ ] Set up Metricool o Publer con las 7 cuentas conectadas.
 
-5-10 specific people to reach out to individually with a thoughtful message:
+### Semana 2
 
-- Independent Latin music journalists (known by name).
-- Editors of niche Latin music outlets.
-- Discord community admins for Venezuelan hip-hop.
-- Aligned creators (podcasters, YouTube channels).
+- [ ] Producir los primeros 10 "data-as-content" posts manuales como training set:
+  - 3x aniversarios (Canserbero muerte, Apocalipsis release, Apache debut).
+  - 3x carousel "3 tracks para empezar con [pillar]".
+  - 2x visualization (timeline de rap VE + mapa productores Caracas).
+  - 2x "proof of work" (screenshots del archivo, completeness counter).
+- [ ] Publish cadence: 3x/semana en IG + X + TikTok.
+- [ ] Newsletter signup form activado. Bonus: enviar un welcome email con "3 hechos sorprendentes del rap VE" como teaser (Resend + React Email).
 
-Each message is handwritten. Not a press release. Something like:
+### Semana 3
 
-> "Vengo construyendo algo que creo que te va a interesar — un archivo serio de rap en español, empezando por Venezuela. Ya hay 100+ artistas con perfiles profundos. Si quieres darle un vistazo y me das tu primera reacción, me ayudaría. [link]"
+- [ ] Crear las 3 playlists Spotify propias:
+  1. **Dauton · Archivo** (best-of rap VE, ~40 tracks).
+  2. **Dauton · Nueva Generación** (2020+, ~25 tracks).
+  3. **Dauton · Canserbero Extended** (tributo + covers + samples).
+- [ ] Pre-populate con tracks ya seedeados en DB.
+- [ ] Share playlists desde cuenta personal Luis + cuentas Dauton como cross-promo.
+- [ ] Primer blog post en LinkedIn de Luis: "Por qué estoy construyendo un archivo del rap hispano". NO editorial de Dauton — esto es personal de founder. Atrae inversores/partners.
 
-Goal: plant seeds, not drive traffic. One person forwarding it to the right Discord is worth more than 100 generic visits.
+### Semana 4
 
-### Content cadence in Phase B
+- [ ] Primer newsletter "Archivo Abierto #1" — envío a waitlist con: lo que estamos haciendo + primer teaser de artista (ej. Canserbero deep dive visual, sin texto largo).
+- [ ] Test Discord server (beta): 5-10 personas invitadas (círculo cercano + algunos fans vocales).
+- [ ] Métrica de mes: 200 emails en waitlist, 500 followers combinados.
 
-- Publish 2-3 additional pillar-quality profiles.
-- Start announcing new entries via social (simple, factual: "New profile: Lil Supa — discography, collaborators, career timeline.").
-- Newsletter: first issue goes out to the ~50 early signups.
-
-### What we measure
-
-- Referring domains (target: +5 in two weeks).
-- Organic search impressions (should start climbing in Search Console).
-- Direct return visits (signals the site got bookmarked / remembered).
-- Newsletter signups (target: +100 in two weeks).
-
----
-
-## Phase C — Public launch (Month 4)
-
-### Preparation
-
-By the time Phase C begins, we need:
-
-- 200+ entity pages live at strong quality.
-- Editorial layer scaffolded; first 3 editorial pieces ready to publish on launch day.
-- Press tip-sheet finalized.
-- Newsletter welcome flow polished.
-- Social media 30-day content plan queued.
-- Discord server ready (if including).
-
-### Launch-day content drops
-
-**Editorial pieces for launch day (3):**
-
-1. Flagship essay: "Why Spanish-language rap deserves its own archive" (manifesto-style, positions the project).
-2. Deep dive on one pillar artist (demonstrates depth).
-3. Scene history: "Caracas rap from 2000 to 2015" (demonstrates breadth).
-
-Published together, with social rollout.
-
-### Press outreach (one round)
-
-Targets:
-- Remezcla, Rolling Stone en Español, Billboard Latin (Tier 1).
-- HipHopDX, Complex (if Latin desk active), All City Canvas.
-- Specific journalists by name, not generic inboxes.
-- Local Venezuelan outlets with culture coverage.
-- Academic contacts (Latin studies programs).
-
-The pitch isn't "check out our site." The pitch is:
-
-> "We've built the first serious data archive for Spanish-language hip-hop, starting with Venezuela. I'm sharing before we go fully public because you may find story angles in the data — here's what we have on [specific topic they cover]. Happy to provide quotes, data access, or exclusive angles on [specific story]."
-
-Tailored per recipient. Concrete value proposition per outlet.
-
-### Social channels activation
-
-- **Twitter/X:** daily cadence. Mix of: new entries announcements, historical notes, data trivia ("En 2013, Apache colaboró con X productores distintos — mira la red"), responses to scene conversation.
-- **Instagram:** 3x/week. More visual — artist carousels, release anniversaries, historical photos with context.
-- **TikTok:** experimental. Short-form explainers about artists, one-minute scene histories. Low investment initially.
-- **YouTube:** deferred. Possibly Phase D.
-
-### Creator partnerships
-
-Identify 3-5 creators whose audience overlaps with ours and who make quality content. Offer:
-
-- Early access to new features.
-- Custom data pulls for their videos ("I want to do a piece on Caracas producers — can you prep a spreadsheet?")
-- Joint editorial projects.
-
-No money changes hands. Mutual value.
-
-### Discord community launch
-
-- Simple server. 3-4 channels.
-- Clear rules, light moderation.
-- Editor presence (Luis answers).
-- First week: invite specific people rather than public posting.
+**Deliverables del mes:**
+- 7 handles activos con bio + foto perfil + primer post.
+- 30 posts publicados (10 por semana entre las 3 plataformas principales).
+- 3 playlists Spotify activas.
+- 200+ emails en waitlist.
+- Newsletter #1 enviado.
+- Infra email validada + SPF/DKIM/DMARC 100%.
 
 ---
 
-## Messaging frameworks
+## MES 2 — JUNIO 2026: Seeding
 
-### The 30-second pitch
-> "Culture Wiki is a serious data archive and editorial platform for Spanish-language rap — starting with Venezuela. Every artist, producer, label, and release has a sourced, interconnected profile. The first place to go when you want to actually understand the scene, not just listen to it."
+**Meta del mes:** escalar cadencia + capturar primeros micro-influencers + validar qué contenido engancha.
 
-### The 5-second pitch
-> "The Wikipedia + Discogs for rap en español."
+### Content cadence (escalada vs mayo)
 
-### The one-line pitch
-> "El archivo serio del rap en español."
+| Plataforma | Cadence | Quién genera |
+|---|---|---|
+| Instagram | 4 posts/semana + 3 stories | Auto 2 + manual 2 |
+| TikTok | 3/semana | Auto (data-driven) |
+| X (Twitter) | 8/semana (~1.2/día) | Auto 6 + manual 2 |
+| YouTube Shorts | 2/semana | Derivado de TikToks |
+| Threads | 5/semana | Repurpose X |
+| Bluesky | 3/semana | Custom bot editorial |
+| Newsletter | 1/2 semanas | Claude-drafted, Luis reviews |
 
-### For press
-> "We've built the structured archive for Spanish-language hip-hop that never existed — sourced, interconnected, and editorially serious. Venezuelan scene fully mapped. Pan-Hispanic expansion follows. If you write about Latin music, we're a resource."
+### Acciones específicas
 
-### For artists
-> "We're documenting Spanish-language rap seriously — not as hype, as history. Your profile is [completeness]% complete. You can claim it, review the facts, and we'll make corrections. Free, forever."
+- [ ] Activar pipeline automático de posts desde events de Supabase (si Engineering lo entrega en tiempo). Ver `social-automation-plan.md` Fase 2.
+- [ ] Discord deferido a post-launch (founder no lo prioriza en MVP, requiere mod time).
+- [ ] Añadir 20 perfiles de artistas nuevos (coordinación Data + Engineering).
+- [ ] Activar newsletter weekly "Archivo Abierto" — primer envío genérico a 500+ subs.
 
-### For fans
-> "The deepest Spanish-language rap archive on the internet. Every artist connected to every other. Sources on every claim."
+### Métricas mes 2
 
----
-
-## Assets to produce before Phase C
-
-- [ ] Press kit page on the site (about, methodology, founder bio, contact).
-- [ ] Downloadable press assets: logo variants, screenshots, fact sheet.
-- [ ] One-page PDF: the project in 60 seconds, with data highlights.
-- [ ] Tip-sheet: "Story angles from our data" — concrete ideas journalists could run with.
-- [ ] Social media templates.
-- [ ] Newsletter welcome sequence (3 emails).
-- [ ] FAQ page.
-- [ ] About page (with our methodology + sourcing philosophy).
+- 500+ emails waitlist.
+- 2K followers combinados.
+- 3+ micro-influencers respondidos con interés.
+- Discord con 50+ miembros.
+- Newsletter #2 + #3 enviados con open rate > 40%.
 
 ---
 
-## Success criteria per phase
+## MES 3 — JULIO 2026: Creative Push
 
-### Phase A
-- No P0/P1 bugs unaddressed for > 24h.
-- 80%+ positive feedback from soft-launch circle.
-- 50+ registered users.
+**Meta del mes:** introducir formatos de mayor producción + lanzar primera tool SEO.
 
-### Phase B
-- 1,000+ organic visits.
-- 5+ referring domains.
-- 200+ newsletter subscribers.
-- First mention from a non-close source.
+### Mini-docs AI (formato estrella del mes)
 
-### Phase C
-- 10,000+ monthly visitors within 60 days.
-- 2+ Tier 1-2 press mentions.
-- 1,000+ newsletter subscribers.
-- 50+ referring domains.
-- First artist claims their profile.
+Serie: **"Archivo Vivo"** — mini-documentales de 60-90 segundos sobre pillars.
+
+Pipeline de producción:
+1. Claude drafts script de 90s desde data del archivo (bio + 3 hitos + 1 quote si hay).
+2. Midjourney / Flux genera 6-8 frames clave del storyboard.
+3. Runway Gen-3 o Veo 3 genera video 10s por shot = ~80s total.
+4. ElevenLabs narra con voz "house" de Dauton.
+5. Edit final en Descript + export para IG Reels / TikTok / YT Shorts.
+
+Target: 1 mini-doc por semana = 4 en el mes.
+
+Primeros 4: Canserbero, Apache, Akapellah, McKlopedia.
+
+**Costo por mini-doc:** ~$5 (Runway credits + ElevenLabs). Vs $500+ si se contrata producción tradicional.
+
+### Primera tool SEO pública
+
+Coordinación con Data & SEO: lanzar la **calculadora de ingresos Spotify** (o la que ellos recomienden primero).
+
+Marketing launch de la tool:
+- Press release corto enviado a 10 outlets via email personalizado.
+- Thread en X explicando los cálculos + inviting a compartir.
+- Post IG carousel: "¿Cuánto gana tu artista favorito en Spotify?" con 5 ejemplos.
+- SEO-optimized landing con schema.org + FAQ.
+- Target keyword: "cuánto paga Spotify por stream 2026".
+
+### Partnership con podcast
+
+Outreach a 1 podcast latino grande (Los Primitivos, El Podcast de Marlos, o similar). Pitch: "Tenemos data exclusiva sobre [tema que cubrieron recientemente]. Los queremos cuando liberen episodio."
+
+No pedimos ser sponsors. Solo ser citados como fuente.
+
+### Métricas mes 3
+
+- 1K+ emails waitlist.
+- 5K followers combinados.
+- 4 mini-docs publicados con vistas combinadas > 50K.
+- 1 tool SEO live con tráfico orgánico medible.
+- 1 podcast mencionando Dauton.
 
 ---
 
-## What we don't do
+## MES 4 — AGOSTO 2026: Community Build
 
-- No product hunt launch (audience mismatch).
-- No influencer payments.
-- No paid press placements.
-- No gamified referral programs.
-- No aggressive email capture popups.
-- No cookie banner unless legally required.
-- No "we just launched!" Twitter thread with 47 emojis.
-- No listicles like "27 things about Culture Wiki."
+**Meta del mes:** profundizar comunidad + formalizar newsletter + expandir tools.
 
-We play the long game. The site earns its place through depth, not volume.
+### Newsletter formalización
+
+Lanzar **"Archivo Abierto"** con cadence predecible: cada 2 domingos.
+
+Formato fijo:
+- **Esta quincena:** adiciones al archivo (top 5 con 1 frase c/u).
+- **Profundidad:** 1 artista/release destacado (150 palabras max).
+- **Mapa:** evento destacado (si hay).
+- **Tool:** herramienta nueva o destacada.
+- **Lectura del editor:** 3 links externos curados (no nuestro content).
+
+Target mes 4: 800 subs, open rate > 45%, click rate > 8%.
+
+### Expansión de tools (coordinado con Data & SEO)
+
+Tool #2 live. Candidatos:
+- Comparador de discografías (input: 2 artistas → output: overlap + complementos).
+- "¿Qué rap escuchaba tu ciudad en [año]?" — interactivo con filtros.
+- "Descubrí productor" — input track → output productor con link a perfil.
+
+### Discord events
+
+- Weekly listening party: 1 release clásico por semana, post-chat en canal dedicado.
+- Q&A con Luis: 1 AMA abierto al mes.
+- "Archivistas" role: usuarios que contribuyen correcciones consistentes ganan badge.
+
+### Reddit AMA
+
+Hacer AMA en r/rapespanol (o equivalente activo en 2026). Prep: 2 semanas antes, responder primero en comments de posts relevantes para earn credibilidad, luego mod approval.
+
+### Métricas mes 4
+
+- 1.5K+ emails newsletter.
+- 10K followers combinados.
+- Discord 200+ miembros activos.
+- 2 tools SEO live con tráfico orgánico combined > 2K/mes.
+- Reddit AMA con 100+ upvotes.
 
 ---
 
-*See also: [`seo-strategy.md`](./seo-strategy.md), [`community.md`](./community.md), [`01-Product/roadmap.md`](../01-Product/roadmap.md)*
+## MES 5 — SEPTIEMBRE 2026: Outreach + Press
+
+**Meta del mes:** outreach masivo a artistas + press kit distribuido + teaser de launch.
+
+### Outreach masivo a artistas
+
+Ejecutar `../06-Operations/artist-outreach.md` una vez Sprint 5 + Sprint 7 estén cerrados:
+
+- Cohort pillars (15): envío semana 1.
+- Cohort top relevancia (50-100): envío semana 2-3.
+- Cohort long tail: defer a post-launch para no quemar dominio durante press week.
+
+Expect: 3-8 artistas reclamando su perfil durante septiembre. Cada claim aprobado = post de social comunicando.
+
+### Press kit distribuido
+
+Press kit formal disponible en `dauton.media/prensa`:
+- Logo assets (monocromo, color, favicon).
+- 5 screenshots del archivo.
+- Fact sheet 1 página: qué es, por qué, data highlights.
+- Founder bio (Luis).
+- 3 "story angles" concretos para periodistas:
+  1. "Primer archivo estructurado del rap hispano — foco diáspora venezolana."
+  2. "Herramientas que el indie artist necesita y no existen (calculadora Spotify, comparador, etc.)."
+  3. "Cómo la data pública puede construir memoria cultural — caso Venezuela."
+
+Distribución: email personalizado a ~30 periodistas latinos culturales. Embargoed para release el día del launch (mes 6).
+
+### Teaser trailer
+
+Video de 30-60 segundos producido con Runway + ElevenLabs. Tono sobrio, tipo Criterion Collection trailer. Publicado el 1 octubre anunciando "Dauton Day: 15 octubre".
+
+### Métricas mes 5
+
+- 8-15 artistas con claim iniciado.
+- 5 periodistas respondiendo al press kit pidiendo más.
+- Newsletter 2.5K subs.
+- Followers combinados 20K.
+- Teaser trailer 100K vistas combined.
+
+---
+
+## MES 6 — OCTUBRE 2026: Dauton Day Launch
+
+**Meta del mes:** el lanzamiento oficial. 1 evento central + 1 semana de contenido denso + PR push.
+
+### Dauton Week — semana del 12 octubre 2026
+
+**Sin livestream** (founder descartó). Sin embajadores ni reps. Sin panel con artistas.
+
+Reemplazo: **lanzamiento escalonado de 7 días** con contenido denso pre-producido y publicación coordinada multi-plataforma.
+
+Producción del contenido pre-lanzamiento (septiembre):
+- 12 mini-docs AI de 60-90s (1 por pillar) producidos con Runway/InVideo + ElevenLabs.
+- Set de 10 carousels IG con highlights del archive.
+- 1 video largo YouTube (8-10 min) "Por qué construimos Dauton" — voz house, sin face cam.
+- Newsletter especial "El archivo está abierto".
+- Press kit publicado en `dauton.media/prensa`.
+- 1 thread X largo (cuando activemos cuenta en mes 5).
+
+Sin necesidad de moderación en vivo, sin riesgo técnico de livestream, sin dependencia de invitados.
+
+### Launch week (12-19 octubre)
+
+- **Lunes 12:** Release del teaser trailer (30s, producido con Runway + ElevenLabs) + press embargo lifts. Newsletter especial "El archivo está abierto" enviada AM.
+- **Martes 13:** Primera ola de artículos (periodistas con embargo). Mini-doc de pillar #1 publicado en TikTok/IG/YT.
+- **Miércoles 14:** "Story angle #2" — tools / calculadora de ingresos. Push X (cuenta activada en mes 5). Mini-doc pillar #2.
+- **Jueves 15:** Mini-doc pillar #3 + carousel IG "Las 10 historias que nadie te contó del rap VE".
+- **Viernes 16:** Mini-doc pillar #4 + thread X largo "Cómo construimos el archive".
+- **Sábado 17:** Newsletter "Tu Mes en Dauton" piloto a 50 early adopters con favoritos seleccionados.
+- **Domingo 18:** Dauton Wrapped primera edición pública — resumen de launch con métricas en site (transparencia).
+- **Lunes 19:** "Qué viene post-launch" — roadmap pública + ask feedback abierto.
+
+Cada día publica 1-2 piezas core multi-plataforma. Sin eventos en vivo. La narrativa del launch se construye via cadencia, no via momento culminante.
+
+### Ko-fi campaign
+
+Durante launch week, activamos Ko-fi con meta concreta (no "apoyar la causa"):
+- "$500 = 100 nuevos perfiles de artistas en noviembre."
+- "$1000 = herramienta X construida."
+- Máxima transparencia sobre uso de fondos.
+
+### Métricas launch
+
+Targets realistas:
+- 2.5K+ emails en newsletter.
+- 15K+ followers combinados (TikTok + IG + YT).
+- 3+ menciones en press tier 1-2.
+- Mini-docs combined views: 500K+.
+- 15+ artistas con claim completo.
+- 100K+ visitas al site durante launch week.
+- $300-1K Ko-fi donations.
+- 50+ subs activan personalized monthly recap (signal de engagement deep).
+
+---
+
+## Post-launch (noviembre 2026 en adelante)
+
+Plan post-launch vive en doc separado (a escribir en octubre). Esbozo:
+
+- Mes 7 (nov): long tail outreach a artistas (resto del cohort).
+- Mes 7-8: tool #3 + #4.
+- Mes 8-9: English-speaking launch para diáspora bilingüe + USA Latino.
+- Mes 10-12: partnership B2B con labels y promotores (si ecosistema pide).
+- Mes 12: retrospectiva + decisión sobre v2.
+
+---
+
+## Risk register del launch
+
+| Risk | Likelihood | Mitigation |
+|---|---|---|
+| Sprint 5 o 7 se atrasan → outreach se retrasa | Alta | Fallback: launch con los pillars (15) perfectamente pulidos en vez de 100 medio-terminados |
+| Sender reputation baja → emails caen en spam | Media | Warm-up agresivo desde mayo, no enviar a cold list sin validar antes |
+| Algún artista pide takedown público | Media | Política `moderation-workflow.md` + protocolo de crisis comms listo |
+| Periodistas ignoran el pitch | Alta | Plan B: publish story angles en medium propio, viralizar en X |
+| Livestream técnico falla el día D | Baja-Media | Pre-grabar backup de las 3 secciones más importantes |
+| Costos AI disparados si video gen se vuelve adictivo | Media | Cap mensual ($100/mes) en dashboards de Runway/ElevenLabs |
+| Founder burnout pre-launch | Media | No exceder 10h/semana de Luis en marketing. Todo automático o delegable |
+
+---
+
+## Requisitos para que este plan funcione
+
+**De Engineering:**
+- Site deploye estable con 99.5%+ uptime en Sept-Oct.
+- Endpoint /api/og/[entity]/[slug] generando OG images.
+- Esquema.org MusicGroup en todas las pages.
+- Tabla `artist_outreach_log` + unsubscribe endpoint.
+- Export de data para tools SEO.
+
+**De Data & SEO:**
+- Al menos 2 tools SEO publicadas antes del launch.
+- Keyword research concreto por tool.
+- Sitemap + schema markup complete.
+
+**De Business & Legal:**
+- Templates de email outreach firmados (CAN-SPAM + GDPR).
+- Privacy policy + terms on site.
+- Política de crisis comms firmada.
+- Press kit legal-cleared.
+
+**De Product Architecture:**
+- Claim flow end-to-end funcional (blocker para outreach).
+- UX de newsletter signup definida.
+
+**De Founder (Luis):**
+- 7 handles reservados (15 min).
+- Approval del budget Tier 1-2 AI stack.
+- 5 horas/semana mínimo para review de outputs (nadie más puede hacer voz de founder).
+
+---
+
+## Ownership
+
+| Área | Owner | Backup |
+|---|---|---|
+| Timeline + coordinación cross-área | Community & Outreach | Strategy/PM |
+| Copy de social + newsletter | Community & Outreach | — |
+| Mini-docs production (script + render) | Community & Outreach | — |
+| Tools SEO | Data & SEO | — |
+| Dauton Day producción técnica | Engineering + Community | — |
+| Press outreach | Community & Outreach | Founder |
+| Artist outreach | Community & Outreach | — |
+
+---
+
+*See also: `marketing-strategy-v1.md` · `ai-marketing-stack.md` · `social-platform-playbook.md` · `social-automation-plan.md` · `../06-Operations/artist-outreach.md`*
