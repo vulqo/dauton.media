@@ -1,0 +1,32 @@
+name: Detect Upcoming Releases
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 08:00 UTC = 05:00 ART (Argentina Standard Time, UTC-3) daily
+    - cron: '0 8 * * *'
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: 02-Engineering/website/package-lock.json
+
+      - name: Install deps
+        working-directory: 02-Engineering/website
+        run: npm ci
+
+      - name: Detect upcoming releases
+        working-directory: 02-Engineering/website
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+        run: npx tsx scripts/ingest/detect-upcoming-releases.ts --max-artists=100
