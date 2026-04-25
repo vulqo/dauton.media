@@ -10,9 +10,10 @@
 |---|---|---|---|
 | 1 | Product Architecture | `01-product-architecture.md` | **PRIMERO** — cierra la visión |
 | 2 | Engineering | `02-engineering.md` | En paralelo post-Product Architecture |
-| 3 | Data & SEO | `03-data-seo.md` | En paralelo post-Product Architecture |
-| 4 | Business & Legal | `04-business-legal.md` | En paralelo post-Product Architecture |
-| 5 | Community & Outreach | `05-community-outreach.md` | En paralelo post-Product Architecture |
+| 3 | Data & SEO | `03-data-seo.md` | En paralelo (incluye email discovery) |
+| 4 | Business & Legal | `04-business-legal.md` | En paralelo (juntos hasta triggers) |
+| 5 | Community & Outreach | `05-community-outreach.md` | En paralelo (scope lean: 1:1 + claim + moderation + posting) |
+| 6 | Marketing & Growth | `06-marketing-growth.md` | En paralelo (separado de Community 2026-04-25) |
 
 **Strategy/PM** (chat actual) es el orquestador — no tiene onboarding prompt (es el chat principal donde vive Luis + Cowork mente maestra).
 

@@ -23,11 +23,12 @@
 | Depto | Chat | Folder primario | Status |
 |---|---|---|---|
 | **Strategy & PM** | actual (chat principal) | `00-Executive/`, `01-Product/`, raíz | activo |
-| **Product Architecture** | agent listo en `.claude/agents/product-architecture.md` | `01-Product/`, `00-Executive/` | a invocar |
-| **Engineering** | agent listo en `.claude/agents/engineering.md` | `02-Engineering/` | a invocar |
-| **Data & SEO** | agent listo en `.claude/agents/data-seo.md` | `05-Data/` | a invocar |
-| **Business & Legal** | agent listo en `.claude/agents/business-legal.md` | `09-Business/`, `08-Legal-Compliance/` | a invocar |
-| **Community & Outreach** | agent listo en `.claude/agents/community-outreach.md` | `06-Operations/`, `07-Marketing-Growth/` | a invocar |
+| **Product Architecture** | agent en `.claude/agents/product-architecture.md` | `01-Product/`, `00-Executive/` | a invocar |
+| **Engineering** | agent en `.claude/agents/engineering.md` | `02-Engineering/` | a invocar |
+| **Data & SEO** | agent en `.claude/agents/data-seo.md` | `05-Data/` (+ `06-Operations/email-discovery-playbook.md`) | activo |
+| **Business & Legal** | agent en `.claude/agents/business-legal.md` | `09-Business/`, `08-Legal-Compliance/` | activo |
+| **Community & Outreach** | agent en `.claude/agents/community-outreach.md` | `06-Operations/` (artist outreach + claim + moderation) | activo (scope reducido 2026-04-25) |
+| **Marketing & Growth** | agent en `.claude/agents/marketing-growth.md` | `07-Marketing-Growth/` | a invocar (separado de Community 2026-04-25) |
 
 Cada chat de departamento se documenta en `00-Executive/departments.md`.
 
@@ -70,7 +71,10 @@ Cada chat de departamento se documenta en `00-Executive/departments.md`.
 
 ## Cambios recientes (last 5 entries — log)
 
-- 2026-04-25 · Data & SEO · **SEO tools roadmap v0.2** entregado en `05-Data/seo-tools-roadmap.md`. 8 tools priorizadas (3 P1, 3 P2, 2 P3) + 2 deprioritized (mapa/timeline post-feedback founder). Tickets cross-area abiertos en TASKS.md: 3 [DATA-SEO], 2 [ENG], 1 [BIZ-LEGAL], 3 [PRODUCT]. Push back enviado al founder sobre calculadora de ingresos (strategy a/b/c).
+- 2026-04-25 · Strategy/PM · **Marketing & Growth separado de Community & Outreach.** 6º agent creado en `.claude/agents/marketing-growth.md` + memory + onboarding prompt. Community queda lean: outreach 1:1 + claim + moderation + social posting operativo. Marketing toma: brand strategy, launch plan, content calendar, partnerships con medios, growth analytics, AI marketing stack. Email discovery operativo movido a Data & SEO scope. Decisión: Business & Legal siguen juntos hasta triggers (3+ partnerships activos, 3+ legal items críticos, primer feature controversial, capital raise serio).
+- 2026-04-25 · Data & SEO · **Eventbrite research + Spotify decision cerrados.** ⚠ Eventbrite API search global removida 2019 — tool #4 sube de scope a arquitectura híbrida. Spotify scraping `open.spotify.com` **eliminado** del set viable: 86M bans dic 2025, ToS enforcement activo. Calculadora MVP usa strategy (a) bandas + upgrade Soundcharts ($10-50/mes) post-budget. Docs: `api-docs/eventbrite.md`, `seo/decisions/spotify-listeners-workaround.md`. Roadmap v0.3 actualizado.
+- 2026-04-25 · Data & SEO · **Sistema SEO operativo formalizado** en `05-Data/seo/` (6 docs: README, stack, keyword-framework, content-engine, audit-cadence, features-creativas). Cubre: stack tools sin GSC, AI/automation stack, 11 APIs pendientes con instrucciones, programmatic SEO i18n (es/en/pt), 17 audits automatizados, 11 features creativas adicionales al roadmap.
+- 2026-04-25 · Data & SEO · **SEO tools roadmap v0.2** entregado en `05-Data/seo-tools-roadmap.md`. 8 tools priorizadas (3 P1, 3 P2, 2 P3) + 2 deprioritized (mapa/timeline post-feedback founder).
 - 2026-04-25 · Strategy/PM · **Estructura departamental formalizada.** 5 agents en `.claude/agents/` + memory por área en `memory/` + README por folder + CLAUDE.md actualizado. Listo para que founder abra los chats Cowork con cada agent.
 - 2026-04-25 · Strategy/PM · Recalibración de visión iniciada. Visión NUEVA es responsabilidad del Product Architecture chat (a abrir).
 - 2026-04-24 · Engineering · Sprint 6.5 cerrado · Wikipedia + Genius scaffolded · race fix Sprint 4 aplicado.

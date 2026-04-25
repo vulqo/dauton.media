@@ -1,7 +1,8 @@
 # 06-Operations
 
-**Owner principal:** Community & Outreach agent
+**Owner principal:** Community & Outreach agent (con scope reducido 2026-04-25)
 **Status:** activo
+**Cambio reciente:** marketing macro se separó al chat **Marketing & Growth** (`07-Marketing-Growth/`). Community queda con outreach 1:1 + claim + moderation + social posting operativo.
 
 ## Qué hay acá
 

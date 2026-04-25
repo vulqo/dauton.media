@@ -46,12 +46,13 @@ Launch target: octubre 2026.
 ├── TASKS.md                   ← board cross-area
 │
 ├── .claude/
-│   └── agents/                ← 5 agents por departamento
+│   └── agents/                ← 6 agents por departamento
 │       ├── product-architecture.md
 │       ├── engineering.md
-│       ├── data-seo.md
-│       ├── business-legal.md
-│       └── community-outreach.md
+│       ├── data-seo.md          (incluye email discovery)
+│       ├── business-legal.md    (juntos hasta triggers)
+│       ├── community-outreach.md (lean: 1:1 + claim + moderation + posting)
+│       └── marketing-growth.md   (brand + launch + content + growth)
 │
 ├── memory/                    ← memoria por área (cada agent lee la suya)
 │   ├── README.md
@@ -60,7 +61,8 @@ Launch target: octubre 2026.
 │   ├── engineering.md
 │   ├── data-seo.md
 │   ├── business-legal.md
-│   └── community-outreach.md
+│   ├── community-outreach.md
+│   └── marketing-growth.md
 │
 ├── 00-Executive/              ← Strategy/PM + Product Architecture
 ├── 01-Product/                ← Product Architecture

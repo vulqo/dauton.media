@@ -17,7 +17,8 @@ Dauton Media opera como una startup distribuida con un fundador (Luis) + agentes
 | 3 | **Engineering** | "Engineering" | `02-Engineering/` | `_Execution/sprints/` | Construye y mantiene la plataforma. |
 | 4 | **Data & SEO** | "Data & SEO" | `05-Data/` | parte de `07-Marketing-Growth/` (SEO research) | Define qué APIs consumimos, qué tools SEO construimos, qué keywords. |
 | 5 | **Business & Legal** | "Business & Legal" | `09-Business/`, `08-Legal-Compliance/` | — | Modelos de monetización, financiamiento, legal review por feature. |
-| 6 | **Community & Outreach** | "Community & Outreach" | `06-Operations/`, parte de `07-Marketing-Growth/` | — | Outreach a artistas, moderation, automation de comms, social. |
+| 6 | **Community & Outreach** | "Community & Outreach" | `06-Operations/` | — | Outreach 1:1 a artistas, claim flow, moderation, social posting operativo. **Scope reducido 2026-04-25.** |
+| 7 | **Marketing & Growth** | "Marketing & Growth" | `07-Marketing-Growth/` | — | Brand, launch plan, content calendar, partnerships con medios, growth analytics, AI marketing stack. **Separado de Community 2026-04-25.** |
 
 **No tienen chat Cowork dedicado pero existen como folders:**
 - `03-Design/` — design system, tokens, brand. Lo administra Luis directamente con Claude Design (separado de Cowork). Engineering y Product Architecture lo consultan como referencia.
