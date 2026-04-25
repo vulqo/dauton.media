@@ -58,11 +58,25 @@ function withTimeout<T>(p: Promise<T>, ms: number, label: string): Promise<T> {
   ]);
 }
 
+// Hard 300 ms spacing between Spotify calls — non-negotiable per ops guidance.
+// Spotify free-tier abuse heuristics ban for ~24h on bursts even within
+// documented limits, so all callers funnel through `respectSpacing` below.
+const MIN_SPACING_MS = 300;
+let lastCallAt = 0;
+async function respectSpacing(): Promise<void> {
+  const elapsed = Date.now() - lastCallAt;
+  if (elapsed < MIN_SPACING_MS) {
+    await new Promise(r => setTimeout(r, MIN_SPACING_MS - elapsed));
+  }
+  lastCallAt = Date.now();
+}
+
 async function spotifyFetch<T>(url: string, maxRetries = 3): Promise<T> {
   let attempt = 0;
   const fullUrl = url.startsWith('http') ? url : `https://api.spotify.com/v1${url}`;
 
   while (attempt < maxRetries) {
+    await respectSpacing();
     const token = await withTimeout(getSpotifyToken(), 10_000, 'getSpotifyToken');
 
     let res: Response;
@@ -116,13 +130,17 @@ export async function searchSpotifyArtist(q: string, limit = 10): Promise<Spotif
   return res.artists.items;
 }
 
+// Spotify (Apr 2026): Client-Credentials cap on `limit` for
+// /artists/{id}/albums is 10. Larger values now return 400 "Invalid limit".
+const ARTIST_ALBUMS_MAX_LIMIT = 10;
+
 export async function getArtistAlbums(
   spotifyId: string,
   opts: { include_groups?: string[]; limit?: number; offset?: number; market?: string } = {}
 ): Promise<SpotifyPaginated<SpotifyAlbum>> {
   const params = new URLSearchParams({
     include_groups: (opts.include_groups ?? ['album', 'single']).join(','),
-    limit: String(opts.limit ?? 50),
+    limit: String(Math.min(opts.limit ?? ARTIST_ALBUMS_MAX_LIMIT, ARTIST_ALBUMS_MAX_LIMIT)),
     offset: String(opts.offset ?? 0),
     market: opts.market ?? 'ES',
   });
@@ -132,10 +150,10 @@ export async function getArtistAlbums(
 export async function* getAllArtistAlbums(spotifyId: string): AsyncGenerator<SpotifyAlbum> {
   let offset = 0;
   while (true) {
-    const page = await getArtistAlbums(spotifyId, { limit: 50, offset });
+    const page = await getArtistAlbums(spotifyId, { limit: ARTIST_ALBUMS_MAX_LIMIT, offset });
     for (const album of page.items) yield album;
     if (!page.next) break;
-    offset += 50;
+    offset += ARTIST_ALBUMS_MAX_LIMIT;
   }
 }
 
