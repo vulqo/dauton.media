@@ -26,6 +26,10 @@
 - `08-Legal-Compliance/ip-and-fair-use.md` — referencia.
 - `09-Business/monetization.md`, `financial-model.md`, `partnerships.md` — drafts.
 
+## Decisiones founder ya tomadas
+
+- **2026-04-25 · Opción A aprobada para Subscripción Artista Pro:** claim + edit + verificación SIEMPRE free para todo artista. Pro es add-on opcional con features no-esenciales (analytics privados, vanity URL, press kit, soporte directo). El artista NUNCA necesita pagar para tener perfil funcional. Pricing strategy + financing-tracks.md deben ajustarse a esta interpretación.
+
 ## Decisiones a tomar (pendientes)
 
 - Pricing por tier por persona (artista/manager/venue/label) con justificación benchmark.

@@ -49,12 +49,13 @@ Cada chat de departamento se documenta en `00-Executive/departments.md`.
 
 ## Decisiones cross-area pendientes
 
-- [ ] **CONFLICT [BIZ-LEGAL ↔ FOUNDER]: Subscripción Artista Pro contradice principio del plan-maestro.**
-  - **Detectado por:** Business & Legal chat (en `09-Business/financing-tracks.md`, Track 2).
-  - **Conflict:** plan-maestro.md principio #6 dice *"Free para el fan y el artista, siempre."* Pero el track de monetización Artista Pro ($8/mes · $80/año) implica que features pro requieren pago.
-  - **Postura Business & Legal:** claim + edit básico queda free (sostiene el principio); Pro es add-on opcional con features no-esenciales (analytics privados, vanity URL, press kit). Es interpretation razonable.
-  - **Postura alternativa:** mantener "artist always free for everything", tachar Track 2 entero, compensar con Tracks 3+ (manager tier) y 6+ (sponsorship/comisiones) más agresivos.
-  - **Acción:** **founder decide antes de Fase 4 (Q1 2027)**. NO bloquea MVP launch — afecta roadmap de monetización post-launch.
+- [x] **RESUELTO 2026-04-25 [BIZ-LEGAL ↔ FOUNDER]: Subscripción Artista Pro — Opción A aprobada.**
+  - Founder eligió: claim + edit básico queda **free para todo artista** (mantiene principio). Pro es **add-on opcional** con features no-esenciales (analytics privados, vanity URL, press kit). El artista NUNCA necesita pagar para tener perfil + claim + edit + verificación.
+  - Implicaciones:
+    - Track 2 de `09-Business/financing-tracks.md` queda con esa interpretación explícita en su tier definition.
+    - Pricing strategy se ajusta: las features Pro deben ser claramente NICE-TO-HAVE, no must-have.
+    - Marketing posiciona "Tu perfil, tu control, gratis" como mensaje permanente — Pro es solo extra.
+  - Owner cierre: Business & Legal chat actualiza pricing-strategy.md + financing-tracks.md con esta decisión final.
 
 (Esta sección lista decisiones que requieren input de múltiples áreas. Se mueven a `TASKS.md` cuando son ejecutables.)
 
@@ -69,11 +70,11 @@ Cada chat de departamento se documenta en `00-Executive/departments.md`.
 
 ## Cambios recientes (last 5 entries — log)
 
+- 2026-04-25 · Data & SEO · **SEO tools roadmap v0.2** entregado en `05-Data/seo-tools-roadmap.md`. 8 tools priorizadas (3 P1, 3 P2, 2 P3) + 2 deprioritized (mapa/timeline post-feedback founder). Tickets cross-area abiertos en TASKS.md: 3 [DATA-SEO], 2 [ENG], 1 [BIZ-LEGAL], 3 [PRODUCT]. Push back enviado al founder sobre calculadora de ingresos (strategy a/b/c).
 - 2026-04-25 · Strategy/PM · **Estructura departamental formalizada.** 5 agents en `.claude/agents/` + memory por área en `memory/` + README por folder + CLAUDE.md actualizado. Listo para que founder abra los chats Cowork con cada agent.
 - 2026-04-25 · Strategy/PM · Recalibración de visión iniciada. Visión NUEVA es responsabilidad del Product Architecture chat (a abrir).
 - 2026-04-24 · Engineering · Sprint 6.5 cerrado · Wikipedia + Genius scaffolded · race fix Sprint 4 aplicado.
 - 2026-04-24 · Engineering · Sprint 6 cerrado · MusicBrainz scaffold · 2 pillars enriched (Canserbero, Apache).
-- 2026-04-24 · Engineering · Sprint 4 cerrado con incidente · Spotify rate limit ban 23h.
 
 ---
 
